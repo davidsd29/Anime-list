@@ -1,6 +1,6 @@
 console.log("appels in bikini");
 
-const student = {
+const person = {
     name: "Dave",
     age: "22",
 }
