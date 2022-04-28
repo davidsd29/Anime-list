@@ -1,0 +1,9 @@
+<aside id="sidebar">
+
+    <ul>
+        <% data.catagorie.forEach(function(catagorie){ %>
+        <%- include('loop/catagories', {catagorie: catagorie}); %>
+        <% }); %>
+    </ul>
+
+</aside>
