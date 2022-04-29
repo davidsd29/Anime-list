@@ -1,6 +1,14 @@
 <a href="" class="anime-entry">
     <img src="<%= anime.tumbnail %>" alt="">
       <h2><%= anime.name %></h2>
-      <div class="review"></div>
+      <div class="review">
+          <% if(ainme.rating == "3" ){
+
+          }elseif(ainme.rating == "2" ){
+
+          }elseif(ainme.rating == "1" ){
+              
+          } %>
+      </div>
       <p><%= anime.discription %></p>
 </a>

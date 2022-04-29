@@ -1,12 +1,11 @@
 header {
-  padding: 20px;
+  padding: 1em;
   background: black;
-  color: #FFFFFF;
 }
 header nav {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-end;
 }
 header nav ul {
@@ -21,24 +20,81 @@ header nav ul li {
   align-items: center;
   text-align: center;
 }
-header nav ul li a {
-  text-decoration: none;
-  color: inherit;
-}
-header nav ul li a:hover {
-  color: dark(hover);
-}
 header nav input[type=text],
 header nav input[type=submit] {
-  padding: 12px 20px;
+  padding: 0 10px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background: inherit;
+}
+
+aside {
+  height: 100%;
+  margin-top: 2em;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+aside a {
+  padding: 6px 8px 6px 16px;
+  display: block;
+}
+
+footer {
+  width: 100%;
+  padding: 1em;
+  background: linear-gradient(#1d1d1d, black);
+}
+footer ul {
+  display: flex;
+  list-style: none;
+}
+footer ul li {
+  display: block;
+  padding: 10px;
+  min-width: 48px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+footer .row {
+  justify-content: center;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #e60de6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 body {
   background: #1d1d1d;
+  color: #FFFFFF;
+}
+
+.anime-entry {
+  margin-top: 2em;
+}
+.anime-entry a {
+  flex-direction: column;
+  text-align: center;
+}
+.anime-entry a img {
+  height: 12em;
+  object-fit: contain;
 }
 
 /*# sourceMappingURL=style.css.map */
