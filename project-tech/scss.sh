@@ -5,10 +5,4 @@ sass --watch assets/scss/style.scss assets/css/style.css
     #     <%- include('loop/catagories', {catagorie: catagorie}); %>
     #     <% }); %>
     # </ul> -->
-
-    
-        # <!-- <% animes.forEach( anime =>{ %>
-        # <%- include('loop/anime'); %>
-        # <% }); %> -->
-
     

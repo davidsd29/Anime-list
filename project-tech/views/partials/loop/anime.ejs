@@ -1,13 +1,28 @@
-<a href="#" class="col-6 col-md-4 col-lg-3 d-flex">
-    <img src="<%= anime.tumbnail %>" alt="">
-      <h3><%= anime.name %></h3>
+<a href="/movie/<%= anime.id %>/<%= anime.slug %>" class="col-6 col-md-4 col-lg-3">
+  <img src="<%= anime.tumbnail %>" alt="">
+  <h3><%= anime.name %></h3>
 
-        <div class="review">
-                <span>&#9733;</span>
-                <span>&#9733;</span>
-                <span>&#9733;</span>
-                <span>&#9733;</span>
-                <span>&#9733;</span>
-            </div>
-
+  <div class="review">
+    <% if (anime.rating == 1){%>
+    <span>&#9733;</span>
+    <%} else if (anime.rating == 2){ %>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <%} else if (anime.rating == 3){ %>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <%} else if (anime.rating == 4){ %>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <%} else if (anime.rating == 5){%>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <span>&#9733;</span>
+    <%}%>
+  </div>
 </a>
