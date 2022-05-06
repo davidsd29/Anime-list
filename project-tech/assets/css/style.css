@@ -1,12 +1,22 @@
 header {
+  position: sticky;
+  top: 0;
   padding: 1em;
+  align-items: center;
   background: black;
+  z-index: 100;
+}
+header img {
+  width: 100%;
+  filter: invert(1);
 }
 header nav {
   width: 100%;
-  display: flex;
   align-items: baseline;
   justify-content: flex-end;
+}
+header nav.menu {
+  flex-wrap: wrap;
 }
 header nav ul {
   display: flex;
@@ -28,16 +38,105 @@ header nav input[type=submit] {
   border-radius: 4px;
   background: inherit;
 }
+header .menu-toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+header .menu-toggle span {
+  width: 35px;
+  display: flex;
+  justify-content: flex-end;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: 1s;
+}
+header .menu-toggle span::before, header .menu-toggle span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: inherit;
+}
+header .menu-toggle span::before {
+  top: 13px;
+}
+header .menu-toggle span::after {
+  bottom: 13px;
+}
+header .mobile-menu {
+  position: fixed;
+  top: 85px;
+  left: 0;
+  height: 200vw;
+  padding-top: 20px;
+  background: inherit;
+  z-index: 100;
+}
+header .mobile-menu .row {
+  justify-content: center;
+}
+header .mobile-menu ul {
+  flex-direction: column;
+}
 
-aside {
+.sidebar {
   height: 100%;
   margin-top: 2em;
   background-color: #111;
   overflow-x: hidden;
   padding-top: 20px;
 }
-aside a {
+.sidebar a {
   padding: 6px 8px 6px 16px;
+  display: block;
+}
+
+.mobile-sidebar {
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  z-index: 10;
+  top: 20%;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  display: flex;
+  flex-direction: row;
+  transform: translateX(92%);
+  transition: all 0.3s ease-in;
+}
+.mobile-sidebar.open {
+  transform: translateX(50%);
+}
+.mobile-sidebar div:first-of-type {
+  display: block;
+  width: 2rem;
+  height: fit-content;
+  padding: 10px 0px;
+  color: #FFFFFF;
+  background: black;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.mobile-sidebar div:first-of-type p {
+  margin-top: 5.5rem;
+  font-size: 17px;
+  transform: rotate(-90deg);
+  text-transform: uppercase;
+  overflow-wrap: normal;
+}
+.mobile-sidebar div:last-of-type {
+  height: 200vw;
+  width: inherit;
+  background-color: #111;
+  overflow-x: hidden;
+  padding: 12px 10px;
+}
+.mobile-sidebar div:last-of-type a {
+  padding: 5px 20px;
   display: block;
 }
 
@@ -62,6 +161,15 @@ footer .row {
   justify-content: center;
 }
 
+h1 {
+  color: #08fdd8;
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
 h3 {
   font-size: 20px;
 }
@@ -69,20 +177,40 @@ h3 {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 a:hover {
   color: #e60de6;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 body {
   background: #1d1d1d;
   color: #FFFFFF;
+  font-family: cursive;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5em;
+  text-decoration: none;
+  text-align: center;
+  background-color: #08fdd8;
+  color: #1d1d1d;
+}
+.btn:focus-within {
+  color: #FFFFFF;
+}
+.btn:hover {
+  background-color: #e60de6;
+  color: #FFFFFF;
+}
+.btn:focus {
+  background-color: #e0113e;
+}
+.btn:active {
+  background-color: darkblue;
 }
 
 .anime-entry {
@@ -95,6 +223,70 @@ body {
 .anime-entry a img {
   height: 12em;
   object-fit: contain;
+}
+
+.anime-list-entry {
+  margin-top: 2em;
+}
+.anime-list-entry .row {
+  margin: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px dotted grey;
+}
+.anime-list-entry .row aside {
+  padding: 20px;
+  text-align: initial;
+}
+.anime-list-entry .row aside a {
+  color: #08fdd8;
+}
+.anime-list-entry .row aside .options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.anime-list-entry .row aside .options button {
+  padding: 5px;
+}
+.anime-list-entry .row aside .options i {
+  font-size: x-large;
+  cursor: pointer;
+}
+.anime-list-entry .row aside .options i:hover {
+  color: #e60de6;
+}
+.anime-list-entry .row img {
+  height: 12em;
+  object-fit: contain;
+  transition: 1s;
+}
+.anime-list-entry .row img:hover {
+  transform: scale(0.8);
+}
+
+.single {
+  margin-top: 2em;
+}
+.single .info {
+  background: black;
+  padding: 20px;
+  margin-right: 10px;
+}
+.single .info img {
+  width: 100%;
+}
+.single .episode p {
+  cursor: pointer;
+  border-bottom: 1px dotted grey;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,11 +2,11 @@ const express = require('express'),
     animes = require('./data'),
     path = require('path'),
     app = express(),
-    port = 3000;
-
+    port = 3000
 
 //Middelware (moet gebeuren voordat op je rout komt)
-app.use(express.static("assets"));
+app.use(express.static(path.join(__dirname, "assets")));
+
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -14,7 +14,22 @@ app.get('/', (req, res) => {
         animes: animes
     })
     // res.render('index', database )
+}).get('/anime/:id/:slug', (req, res) => {
+    const anime = animes.find(element => element.id == req.params.id);
+    res.render('single', {
+        animes: anime
+    });
+}).get('/my-list', (req, res) => {
+    res.render('mylist', {
+        animes: animes
+    })
+}).get('/categorie/:categories', (req, res) => {
+    res.render('categories', {
+        animes: animes
+    })
+
 });
+
 
 
 

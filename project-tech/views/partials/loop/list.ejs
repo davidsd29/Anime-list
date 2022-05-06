@@ -1,0 +1,26 @@
+<div class="col-12 col-md-3">
+    <a href="/anime/<%= anime.id %>/<%= anime.slug %>">
+        <img src="<%= anime.tumbnail %>" alt="Anime cover">
+    </a>
+</div>
+
+<div class="col-12 col-md-9">
+    <aside>
+        <h3><%= anime.name %></h3>
+        <div class="review">
+            <% for(let i = 0; i < anime.rating; i++) {%>
+            <span>&#9733;</span>
+            <% } %>
+        </div>
+        <p><%= anime.storyline %></p>
+        <div class="options">
+            <a href="/anime/<%= anime.id %>/<%= anime.slug %>">Read more...</a>
+
+            <div>
+                <button>Move up</button>
+                <button>Move down</button>
+                <i class="bi bi-trash"  onclick = "deleteFromList()"></i>
+            </div>
+        </div>
+    </aside>
+</div>

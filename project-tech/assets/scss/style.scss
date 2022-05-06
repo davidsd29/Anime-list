@@ -3,29 +3,10 @@
 @import 'helpers/function';
 @import 'nav';
 @import 'text';
+@import 'structure';
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-body {
-    background: color(primary);
-    color: color(quaternary);
-}
-
-
-.anime-entry {
-    margin-top: 2em;
-
-    a {
-        flex-direction: column;
-        text-align: center;
-
-        img {
-            height: 12em;
-            object-fit: contain;
-        }
-
-    }
-
 }

@@ -1,0 +1,35 @@
+<%- include('partials/header'); %>
+
+<main>
+    <div class="row">
+        <section class="col-12 col-md-10 single">
+
+            <section class="row info">
+                <div class="col-12 col-md-4">
+                    <img src="<%= animes.tumbnail %>" alt=" Anime cover">
+
+                </div>
+                <div class="col-12 col-md-8">
+                    <h1><%= animes.name %></h1>
+                    <h2>Info:</h2>
+                    <p><%= animes.storyline %></p>
+                    <p>Genres: <%= animes.categories %> </p>
+                    <button class="btn" onclick="addToList()">Add to list</button>
+                </div>
+            </section>
+
+            <section class="episode">
+                <h3>Episode List</h3>
+                <% for(let i = 1; i < animes.episodes; i++) {%>
+
+                <p><%= animes.name %> Episode Subbed <%= i %></p>
+
+                <% } %>
+            </section>
+        </section>
+
+        <%- include('partials/sidebar'); %>
+    </div>
+</main>
+
+<%- include('partials/footer'); %>
