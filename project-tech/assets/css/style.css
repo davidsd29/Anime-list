@@ -428,6 +428,10 @@ form {
   display: none;
 }
 
+.blur {
+  filter: blur(10px);
+}
+
 .btn {
   border: none;
   padding: 10px;
