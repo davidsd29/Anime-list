@@ -13,6 +13,10 @@ form {
     color: color(quaternary);
 }
 
+.hidden {
+    display: none;
+}
+
 .btn {
     border: none;
     padding: 10px;
@@ -139,7 +143,7 @@ form {
     .profile-info {
         padding: 20px;
         align-items: center;
-            background: linear-gradient(color(secondary), color(primary));
+        background: linear-gradient(color(secondary), color(primary));
 
         img {
             width: 100%;

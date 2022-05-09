@@ -177,9 +177,9 @@
                       border: 2px solid red;
 
                       &::placeholder {
-                         color: red;
-                         font-style: italic;
-                     }
+                          color: red;
+                          font-style: italic;
+                      }
                   }
               }
           }
@@ -224,6 +224,34 @@
                   text-decoration: underline;
                   color: color(hover);
               }
+          }
+      }
+  }
+
+  .form-respond {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      div {
+          width: 100%;
+          padding: 20px;
+          text-align: center;
+          border-radius: 4px;
+          border: 2px solid gray;
+          color: inherit;
+          background-color: color(primary);
+
+          h3 {
+              letter-spacing: -1px;
+              margin-bottom: 20px;
+          }
+
+          p:last-of-type {
+              line-height: 20px;
+              margin-bottom: 20px;
           }
       }
   }

@@ -17,8 +17,14 @@ const errorMessages = {
     pswRepeat: "Repeating your password is required ",
 };
 
+const validRegistration = {
+    frame: document.querySelector(".form-respond"),
+    text: document.getElementById("serverRespond")
+}
 
-let contactFormulier = document.getElementById("register");
+
+let contactFormulier = document.getElementById("register"),
+    data = {};
 
 // value from form[input type]
 let validateField = (input, value) => {
@@ -31,11 +37,11 @@ let validateField = (input, value) => {
 }
 
 let formInput = contactFormulier.querySelectorAll("fieldset");
+
 form.submit.addEventListener("click", (e) => {
     e.preventDefault();
 
-    let data = {},
-        error = false;
+    let error = false;
 
     // looping through the whole form 
     formInput.forEach((field) => {
@@ -63,12 +69,16 @@ form.submit.addEventListener("click", (e) => {
     });
 
     if (error == false) {
-        console.log("ready to send to the database")
-    } else {
-        console.log("please check again")
+        registerd();
+        console.log("ready to send to the database");
     }
 });
 
+function registerd() {
+    validRegistration.text.textContent = "Thanks " + data.name + "! Your account has been made with the username: " + data.username;
+    validRegistration.frame.classList.remove("hidden");
+    contactFormulier.classList.add("blur");
+}
 
 
 function errorResponse() {
@@ -87,20 +97,21 @@ function errorResponse() {
             document.getElementsByName('psw-repeat')[0].placeholder = value;
         }
 
-        //looping through the whole form 
+        // // looping through the whole form 
         // formInput.forEach((required) => {
 
         //     let input = required.querySelector("input"),
         //         valid = required.classList.contains("required"),
         //         value = input.value; //value of the input type
 
-        //     console.log(input);
+        // console.log(valid);        
+        //     // console.log(input);
         //     if (value == "" && valid) {
         //         required.classList.add("invalid");
         //     } else {
         //         required.classList.remove("invalid");
         //     }
-        // })
+        // });
     }
 
 }
