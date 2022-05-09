@@ -1,0 +1,29 @@
+<div id="login-form">
+
+  <form class="modal-content animate" action="#" method="POST">
+    <div class="imgcontainer">
+      <span onclick="closeLogin()" class="close" title="Close Modal">&times;</span>
+      <img src="/img/logo.png" alt="logo" class="logo">
+    </div>
+
+    <section>
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit" class="btn">Login</button>
+
+    </section>
+
+    <section>
+      <button type="button" onclick="closeLogin()" class="cancelbtn">Cancel</button>
+      <aside>
+        <span class="psw">Forgot <a href="#">password?</a></span><br>
+        <span>Don't have an acount? <a href="/register">Register now!</a></span>
+      </aside>
+
+    </section>
+  </form>
+</div>

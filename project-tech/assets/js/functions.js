@@ -1,4 +1,3 @@
-
 function deleteFromList() {
     //Find index of specific object using findIndex method.    
     const Index = animes.findIndex((object => object.id == animes.id));
@@ -13,4 +12,22 @@ function addToList() {
 
     //Update object's like property.
     animes[Index].like = "y";
+}
+
+
+// login functions
+const modal = document.getElementById("login-form");
+
+function openLogin() {
+    modal.style.display = "block";
+}
+
+function closeLogin() {
+    modal.style.display = "none";
+}
+
+window.onclick = (e) => {
+    if (e.target == modal) {
+        modal.style.display = "none";
+    }
 }

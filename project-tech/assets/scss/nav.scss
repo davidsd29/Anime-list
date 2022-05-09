@@ -6,18 +6,13 @@ header {
     background: color(secondary);
     z-index: 100;
 
-    img {
-        width: 100%;
-        filter: invert(1);
-    }
-
     nav {
         width: 100%;
         align-items: baseline;
         justify-content: flex-end;
-        
-        &.menu{
-                flex-wrap: wrap;
+
+        &.menu {
+            flex-wrap: wrap;
         }
 
         ul {
@@ -31,16 +26,31 @@ header {
                 justify-content: center;
                 align-items: center;
                 text-align: center;
+
+                button {
+                    background: none;
+                    border: none;
+                    color: inherit;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: color(hover);
+                    }
+                }
+
+                i{
+                    font-size: larger;
+                }
             }
         }
 
         input[type=text],
         input[type=submit] {
-            // width: 100%;
             padding: 0 10px;
             display: inline-block;
             border: 1px solid #ccc;
             border-radius: 4px;
+            color: inherit;
             background: inherit;
         }
 
@@ -82,7 +92,7 @@ header {
 
     .mobile-menu {
         position: fixed;
-        top: 85px;
+        top: 4em;
         left: 0;
         height: 200vw;
         padding-top: 20px;
@@ -170,7 +180,9 @@ footer {
 
     ul {
         display: flex;
+        justify-content: center;
         list-style: none;
+        flex-wrap: wrap;
 
         li {
             display: block;

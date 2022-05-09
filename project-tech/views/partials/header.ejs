@@ -16,36 +16,35 @@
     <div class="container">
         <header class="row">
             <div id="branding" class="col-6 col-md-2">
-                <a href="#"><img src="/img/logo.png" alt="logo"></a>
+                <a href="/"><img src="/img/logo.png" alt="logo" class="logo"></a>
             </div>
 
             <nav class="d-none d-md-flex col-md-10 menu">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/my-list">My list</a></li>
-                    <li><a href="/find-friend">Find friend</a></li>
-                    <li><a href="/login">Login</a></li>
+                    <li><button onclick="openLogin()">Login</button></li>
+                    <li><a href="/profile"><i class="bi bi-person-circle"></i></a></li>
                 </ul>
 
-                <%- include('search'); %>
             </nav>
 
             <div class="menu-toggle d-md-none col-6">
                 <span></span>
             </div>
 
+            <!-- Mobile menu -->
             <nav class="d-none col-md-10 mobile-menu">
-                <div class="row">
-                    <%- include('search'); %>
-                </div>
                 <div class="row">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/my-list">My list</a></li>
-                        <li><a href="/find-friend">Find friend</a></li>
                         <li><a href="/login">Login</a></li>
+                        <li><button onclick="openLogin()">Login</button></li>
+                        <li><a href="/profile">Profile</a></li>
                     </ul>
 
                 </div>
             </nav>
         </header>
+        <%- include('login'); %>

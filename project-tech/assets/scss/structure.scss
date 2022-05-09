@@ -4,11 +4,20 @@ body {
     font-family: cursive;
 }
 
+.logo {
+    width: 100%;
+    filter: invert(1);
+}
+
+form {
+    color: color(quaternary);
+}
+
 .btn {
     border: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 5em;
+    border-radius: 1em;
     text-decoration: none;
     text-align: center;
     background-color: color(tertiary);
@@ -36,6 +45,7 @@ body {
     margin-top: 2em;
 
     a {
+        margin-top: 10px;
         flex-direction: column;
         text-align: center;
 
@@ -70,14 +80,15 @@ body {
                 align-items: center;
                 justify-content: space-between;
 
-                button{
+                button {
                     padding: 5px;
                 }
+
                 i {
                     font-size: x-large;
                     cursor: pointer;
 
-                    &:hover{
+                    &:hover {
                         color: color(hover);
                     }
                 }
@@ -102,7 +113,11 @@ body {
     .info {
         background: black;
         padding: 20px;
-        margin-right: 10px;
+
+        @include respond-to(from-md) {
+            margin-right: 10px;
+        }
+
 
         img {
             width: 100%;
@@ -116,4 +131,23 @@ body {
             border-bottom: 1px dotted grey;
         }
     }
+}
+
+.profile {
+    margin-top: 2em;
+
+    .profile-info {
+        padding: 20px;
+        align-items: center;
+            background: linear-gradient(color(secondary), color(primary));
+
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+    }
+
 }

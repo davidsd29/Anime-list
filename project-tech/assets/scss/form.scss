@@ -1,0 +1,229 @@
+  #login-form {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 50px;
+      height: 100%;
+      overflow: auto;
+      padding-top: 60px;
+      transition: 1s;
+
+      @include respond-to(from-lg) {
+          left: 16em;
+          right: 16em;
+      }
+
+      @media screen and (min-width: 1500px) {
+          left: 24em;
+          right: 24em;
+      }
+
+      @include respond-to(up-to-md) {
+          left: 4em;
+          right: 4em;
+      }
+
+      @include respond-to(only-xs) {
+          left: 0;
+          width: 100%;
+      }
+
+
+
+      /* Modal Content/Box */
+      form {
+          background-color: color(primary);
+          margin: 5% auto 15% auto;
+          border: 1px solid #888;
+          width: 70%;
+          /* Could be more or less, depending on screen size */
+
+          section {
+              padding: 16px;
+
+              &:last-of-type {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  background: linear-gradient(color(primary), color(secondary));
+
+                  span.psw {
+                      float: right;
+
+                      @include respond-to(up-to-sm) {
+                          display: block;
+                          float: none;
+                      }
+                  }
+
+                  .cancelbtn {
+                      width: auto;
+                      padding: 10px;
+                      cursor: pointer;
+                      text-decoration: none;
+                      text-align: center;
+                      border: none;
+                      border-radius: 1em;
+                      background-color: #f44336;
+
+                      @include respond-to(up-to-sm) {
+                          width: 100%;
+                      }
+
+                      &:hover {
+
+                          filter: contrast(200%);
+                          box-shadow: 0 0 20px 5px red;
+                      }
+                  }
+              }
+
+              input[type=text],
+              input[type=password] {
+                  width: 100%;
+                  padding: 12px 20px;
+                  margin: 8px 0;
+                  display: inline-block;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  color: inherit;
+                  background-color: transparent;
+              }
+
+              button {
+                  width: 100%;
+              }
+          }
+
+          .imgcontainer {
+              text-align: center;
+              margin: 24px 0 12px 0;
+              position: relative;
+
+              img {
+                  width: 40%;
+              }
+
+              /* The Close Button (x) */
+              .close {
+                  position: absolute;
+                  right: 25px;
+                  top: 0;
+                  color: red;
+                  font-size: 35px;
+                  font-weight: bold;
+
+                  &:hover,
+                  &:focus {
+                      color: red;
+                      cursor: pointer;
+                  }
+              }
+          }
+
+          /*  Zoom Animation */
+          .animate {
+              -webkit-animation: animatezoom 0.6s;
+              animation: animatezoom 0.6s
+          }
+      }
+
+      @keyframes animatezoom {
+          from {
+              transform: scale(0)
+          }
+
+          to {
+              transform: scale(1)
+          }
+      }
+  }
+
+  #register {
+      padding: 20px;
+
+      fieldset {
+
+          div {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              //   flex-direction: column;
+              margin-bottom: 10px;
+
+              #profileImage {
+                  height: 100px;
+                  cursor: pointer;
+              }
+
+              #imageUpload {
+                  display: block;
+                  //   display: none;
+              }
+          }
+
+          &.required {
+              label {
+                  &::after {
+                      content: "*";
+                      margin-left: 5px;
+                      color: color(hover);
+                  }
+              }
+
+              &.invalid {
+                  input {
+                      border: 2px solid red;
+
+                      &::placeholder {
+                         color: red;
+                         font-style: italic;
+                     }
+                  }
+              }
+          }
+
+          input[type=text],
+          input[type=password],
+          textarea {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              color: inherit;
+              background-color: transparent;
+          }
+      }
+
+      input[type=submit] {
+          width: 100%;
+      }
+
+      a {
+          color: color(tertiary);
+      }
+
+
+      .row {
+          margin-top: 30px;
+      }
+
+
+      .sign-In {
+          text-align: center;
+
+          button {
+              color: color(tertiary);
+              background: none;
+              border: none;
+
+              &:hover {
+                  text-decoration: underline;
+                  color: color(hover);
+              }
+          }
+      }
+  }

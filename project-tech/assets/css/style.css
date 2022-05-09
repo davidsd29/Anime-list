@@ -6,10 +6,6 @@ header {
   background: black;
   z-index: 100;
 }
-header img {
-  width: 100%;
-  filter: invert(1);
-}
 header nav {
   width: 100%;
   align-items: baseline;
@@ -30,12 +26,25 @@ header nav ul li {
   align-items: center;
   text-align: center;
 }
+header nav ul li button {
+  background: none;
+  border: none;
+  color: inherit;
+}
+header nav ul li button:hover {
+  text-decoration: underline;
+  color: #e60de6;
+}
+header nav ul li i {
+  font-size: larger;
+}
 header nav input[type=text],
 header nav input[type=submit] {
   padding: 0 10px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: inherit;
   background: inherit;
 }
 header .menu-toggle {
@@ -68,7 +77,7 @@ header .menu-toggle span::after {
 }
 header .mobile-menu {
   position: fixed;
-  top: 85px;
+  top: 4em;
   left: 0;
   height: 200vw;
   padding-top: 20px;
@@ -147,7 +156,9 @@ footer {
 }
 footer ul {
   display: flex;
+  justify-content: center;
   list-style: none;
+  flex-wrap: wrap;
 }
 footer ul li {
   display: block;
@@ -183,17 +194,217 @@ a:hover {
   color: #e60de6;
 }
 
+#login-form {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 50px;
+  height: 100%;
+  overflow: auto;
+  padding-top: 60px;
+  transition: 1s;
+  /* Modal Content/Box */
+}
+@media screen and (min-width: 992px) {
+  #login-form {
+    left: 16em;
+    right: 16em;
+  }
+}
+@media screen and (min-width: 1500px) {
+  #login-form {
+    left: 24em;
+    right: 24em;
+  }
+}
+@media screen and (max-width: 991px) {
+  #login-form {
+    left: 4em;
+    right: 4em;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 575px) {
+  #login-form {
+    left: 0;
+    width: 100%;
+  }
+}
+#login-form form {
+  background-color: #1d1d1d;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 70%;
+  /* Could be more or less, depending on screen size */
+  /*  Zoom Animation */
+}
+#login-form form section {
+  padding: 16px;
+}
+#login-form form section:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(#1d1d1d, black);
+}
+#login-form form section:last-of-type span.psw {
+  float: right;
+}
+@media screen and (max-width: 767px) {
+  #login-form form section:last-of-type span.psw {
+    display: block;
+    float: none;
+  }
+}
+#login-form form section:last-of-type .cancelbtn {
+  width: auto;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 1em;
+  background-color: #f44336;
+}
+@media screen and (max-width: 767px) {
+  #login-form form section:last-of-type .cancelbtn {
+    width: 100%;
+  }
+}
+#login-form form section:last-of-type .cancelbtn:hover {
+  filter: contrast(200%);
+  box-shadow: 0 0 20px 5px red;
+}
+#login-form form section input[type=text],
+#login-form form section input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: inherit;
+  background-color: transparent;
+}
+#login-form form section button {
+  width: 100%;
+}
+#login-form form .imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+  /* The Close Button (x) */
+}
+#login-form form .imgcontainer img {
+  width: 40%;
+}
+#login-form form .imgcontainer .close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: red;
+  font-size: 35px;
+  font-weight: bold;
+}
+#login-form form .imgcontainer .close:hover, #login-form form .imgcontainer .close:focus {
+  color: red;
+  cursor: pointer;
+}
+#login-form form .animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+#register {
+  padding: 20px;
+}
+#register fieldset div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#register fieldset div #profileImage {
+  height: 100px;
+  cursor: pointer;
+}
+#register fieldset div #imageUpload {
+  display: block;
+}
+#register fieldset.required label::after {
+  content: "*";
+  margin-left: 5px;
+  color: #e60de6;
+}
+#register fieldset.required.invalid input {
+  border: 2px solid red;
+}
+#register fieldset.required.invalid input::placeholder {
+  color: red;
+  font-style: italic;
+}
+#register fieldset input[type=text],
+#register fieldset input[type=password],
+#register fieldset textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: inherit;
+  background-color: transparent;
+}
+#register input[type=submit] {
+  width: 100%;
+}
+#register a {
+  color: #08fdd8;
+}
+#register .row {
+  margin-top: 30px;
+}
+#register .sign-In {
+  text-align: center;
+}
+#register .sign-In button {
+  color: #08fdd8;
+  background: none;
+  border: none;
+}
+#register .sign-In button:hover {
+  text-decoration: underline;
+  color: #e60de6;
+}
+
 body {
   background: #1d1d1d;
   color: #FFFFFF;
   font-family: cursive;
 }
 
+.logo {
+  width: 100%;
+  filter: invert(1);
+}
+
+form {
+  color: #FFFFFF;
+}
+
 .btn {
   border: none;
   padding: 10px;
   cursor: pointer;
-  border-radius: 5em;
+  border-radius: 1em;
   text-decoration: none;
   text-align: center;
   background-color: #08fdd8;
@@ -217,6 +428,7 @@ body {
   margin-top: 2em;
 }
 .anime-entry a {
+  margin-top: 10px;
   flex-direction: column;
   text-align: center;
 }
@@ -273,7 +485,11 @@ body {
 .single .info {
   background: black;
   padding: 20px;
-  margin-right: 10px;
+}
+@media screen and (min-width: 768px) {
+  .single .info {
+    margin-right: 10px;
+  }
 }
 .single .info img {
   width: 100%;
@@ -281,6 +497,21 @@ body {
 .single .episode p {
   cursor: pointer;
   border-bottom: 1px dotted grey;
+}
+
+.profile {
+  margin-top: 2em;
+}
+.profile .profile-info {
+  padding: 20px;
+  align-items: center;
+  background: linear-gradient(black, #1d1d1d);
+}
+.profile .profile-info img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 * {
