@@ -1,5 +1,6 @@
 const express = require('express'),
-    animes = require('./data'),
+    animes = require('./database/anime'),
+    users = require('./database/users'),
     path = require('path'),
     app = express(),
     port = 3000
