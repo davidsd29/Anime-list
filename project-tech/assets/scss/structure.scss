@@ -9,16 +9,20 @@ body {
     filter: invert(1);
 }
 
-form {
-    color: color(quaternary);
-}
-
 .hidden {
     display: none;
 }
 
 .blur {
     filter: blur(10px);
+}
+
+.draggable{
+    cursor: move;
+
+    &.dragging{
+        opacity: .5;
+    }
 }
 
 .btn {

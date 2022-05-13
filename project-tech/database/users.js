@@ -18,9 +18,9 @@ const users = [{
 }, {
     "id": 3, //primary key
     "name": "Jeniffer Lopez",
-    "username": "Sexyladie2000",
+    "username": "ladie2000",
     "pasword": "bigbunda",
-    "tumbnail": "jlo.jpg",
+    "tumbnail": "img/jlo.jpg",
     "email": "JLO@gmail.com",
     "discription": "orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in orci nec ante facilisis luctus id ac metus. Donec id dolor at diam faucibus egestas. Vestibulum non euismod elit. Donec risus libero, dapibus facilisis leo et, euismod hendrerit nisi.",
 }];

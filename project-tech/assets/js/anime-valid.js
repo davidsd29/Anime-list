@@ -1,29 +1,21 @@
 const form = {
-    name: document.getElementById("name"),
-    email: document.getElementById("email"),
-    message: document.getElementById("description"),
-    photo: document.getElementById("imageUpload"),
-    username: document.getElementById("username"),
-    psw: document.getElementById("psw"),
-    pswRepeat: document.getElementById("psw-repeat"),
-    submit: document.getElementById("submit"),
+    photo: document.getElementById("new-anime tumbnail"),
+    name: document.getElementById("new-anime name"),
+    rating: document.getElementById("new-anime rating"),
+    genre: document.getElementById("new-anime genre"),
+    episodes: document.getElementById("new-anime episodes"),
+    storyline: document.getElementById("new-anime storyline"),
+    submit: document.getElementById("new-anime submit"),
 }
 
 const errorMessages = {
     name: "Entering your name is required ",
-    email: "Entering your email is required ",
-    usernam: "Entering your username is required ",
-    psw: "Entering your password is required ",
-    pswRepeat: "Repeating your password is required ",
+    genre: "Entering your genre is required ",
+    episodes: "Entering number of episodes is required ",
+    rating: "Entering number of rating is required ",
 };
 
-const validRegistration = {
-    frame: document.querySelector(".form-respond"),
-    text: document.getElementById("serverRespond")
-}
-
-
-let contactFormulier = document.getElementById("register"),
+let contactFormulier = document.getElementById("new-anime"),
     data = {};
 
 // value from form[input type]
@@ -46,7 +38,7 @@ form.submit.addEventListener("click", (e) => {
     // looping through the whole form 
     formInput.forEach((field) => {
 
-        let input = field.querySelector("input, select, textarea"),
+        let input = field.querySelector("input, select"),
             name = input.name, //name of the input type
             value = input.value;
 
@@ -62,23 +54,16 @@ form.submit.addEventListener("click", (e) => {
             data[name] = value
 
         } else {
-            errorResponse()
+            errorResponse();
             field.classList.add("invalid");
             error = true
         }
     });
 
     if (error == false) {
-        registerd();
         console.log("ready to send to the database");
     }
 });
-
-function registerd() {
-    validRegistration.text.textContent = "Thanks " + data.name + "! Your account has been made with the username: " + data.username;
-    validRegistration.frame.classList.remove("hidden");
-    contactFormulier.classList.add("blur");
-}
 
 
 function errorResponse() {
@@ -87,14 +72,12 @@ function errorResponse() {
 
         if (key == "name") {
             document.getElementsByName('name')[0].placeholder = value;
-        } else if (key == "email") {
-            document.getElementsByName('email')[0].placeholder = value;
-        } else if (key == "username") {
-            document.getElementsByName('username')[0].placeholder = value;
-        } else if (key == "psw") {
-            document.getElementsByName('psw')[0].placeholder = value;
-        } else if (key == "pswRepeat") {
-            document.getElementsByName('psw-repeat')[0].placeholder = value;
+        } else if (key == "genre") {
+            document.getElementsByName('genre')[0].placeholder = value;
+        } else if (key == "episodes") {
+            document.getElementsByName('episodes')[0].placeholder = value;
+        } else if (key == "rating") {
+            document.getElementById('error').text.textContent = value;
         }
 
         // // looping through the whole form 

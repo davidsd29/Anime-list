@@ -194,6 +194,10 @@ a:hover {
   color: #e60de6;
 }
 
+form {
+  color: #FFFFFF;
+}
+
 #login-form {
   display: none;
   position: fixed;
@@ -355,8 +359,9 @@ a:hover {
 #new-anime fieldset.required.invalid input {
   border: 2px solid red;
 }
-#register fieldset.required.invalid input::placeholder,
-#new-anime fieldset.required.invalid input::placeholder {
+#register fieldset.required.invalid input::placeholder, #register fieldset.required.invalid input #error,
+#new-anime fieldset.required.invalid input::placeholder,
+#new-anime fieldset.required.invalid input #error {
   color: red;
   font-style: italic;
 }
@@ -458,16 +463,19 @@ body {
   filter: invert(1);
 }
 
-form {
-  color: #FFFFFF;
-}
-
 .hidden {
   display: none;
 }
 
 .blur {
   filter: blur(10px);
+}
+
+.draggable {
+  cursor: move;
+}
+.draggable.dragging {
+  opacity: 0.5;
 }
 
 .btn {

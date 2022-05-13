@@ -2,10 +2,10 @@
 
 <main>
     <div class="row">
-        <section class="anime-list-entry col-12 col-md-10">
+        <section class="anime-list-entry dragdrop col-12 col-md-10">
             <% animes.forEach( anime =>{ %>
             <% if (anime.like == "Like"){%>
-            <div class="row">
+            <div class="row draggable" draggable="true">
                 <%- include('partials/loop/list', {
                             anime: anime
                         }); %>

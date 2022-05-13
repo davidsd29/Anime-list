@@ -2,15 +2,15 @@
 const express = require('express'),
     path = require('path'),
     app = express(),
-    port = 3000,
-    animes = require('./db')
+    port = 3000
+    // animes = require('./db')
 
-// let url = require('url');
+    // let url = require('url');
 
-// database info
-const 
-    users = require('./database/users'),
-    genres = require('./database/genres')
+    // database info
+    const animes = require('./database/anime'),
+        users = require('./database/users'),
+        genres = require('./database/genres')
 
 //Middelware (moet gebeuren voordat op je rout komt)
 app.use(express.static(path.join(__dirname, "assets")));
@@ -106,7 +106,7 @@ app.post('/register', (req, res) => {
     })
     .post('/like', (req, res) => {
         console.log(req.body)
-       const id = req.params.id
+        const id = req.params.id
 
         animes.push({
             id: id,
