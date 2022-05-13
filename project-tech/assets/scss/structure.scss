@@ -57,6 +57,21 @@ form {
         flex-direction: column;
         text-align: center;
 
+        &:first-of-type {
+            img {
+                padding: 14px;
+                border: 2px solid black;
+                width: 120px;
+            }
+
+            &:hover {
+                img {
+                    border-color: gray;
+                    filter: contrast(0.5);
+                }
+            }
+        }
+
         img {
             height: 12em;
             object-fit: contain;

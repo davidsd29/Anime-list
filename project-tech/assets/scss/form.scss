@@ -140,7 +140,8 @@
       }
   }
 
-  #register {
+  #register,
+  #new-anime {
       padding: 20px;
 
       fieldset {
@@ -152,7 +153,8 @@
               //   flex-direction: column;
               margin-bottom: 10px;
 
-              #profileImage {
+              #profileImage,
+              #tumbnail {
                   height: 100px;
                   cursor: pointer;
               }
@@ -186,6 +188,9 @@
 
           input[type=text],
           input[type=password],
+          input[type=number],
+          input[type=email],
+          select,
           textarea {
               width: 100%;
               padding: 12px 20px;
@@ -195,6 +200,10 @@
               border-radius: 4px;
               color: inherit;
               background-color: transparent;
+
+              option {
+                  background-color: color(primary);
+              }
           }
       }
 

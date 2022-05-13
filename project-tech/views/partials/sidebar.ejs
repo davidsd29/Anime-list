@@ -1,38 +1,16 @@
 <aside class="d-none d-md-block col-md-2 sidebar">
-
-    <a href="/categorie/brodership">Murder</a>
-    <a href="#services">Fantasy</a>
-    <a href="#clients">Adventure</a>
-    <a href="#contact">Random</a>
-    <a href="#about">Murder</a>
-    <a href="#services">Fantasy</a>
-    <a href="#clients">Adventure</a>
-    <a href="#contact">Random</a>
-    <a href="#about">Murder</a>
-    <a href="#services">Fantasy</a>
-    <a href="#clients">Adventure</a>
-    <a href="#contact">Random</a>
-
+    <% genres.forEach( genre =>{ %>
+    <a href="/genre/<%= genre %>"><%= genre %></a>
+    <% });%>
 </aside>
-
-
 
 <aside class=" d-md-none mobile-sidebar">
     <div>
-        <p>Categories</p>
+        <p>Genres</p>
     </div>
     <div>
-        <a href="#about">Murder</a>
-        <a href="#services">Fantasy</a>
-        <a href="#clients">Adventure</a>
-        <a href="#contact">Random</a>
-        <a href="#about">Murder</a>
-        <a href="#services">Fantasy</a>
-        <a href="#clients">Adventure</a>
-        <a href="#contact">Random</a>
-        <a href="#about">Murder</a>
-        <a href="#services">Fantasy</a>
-        <a href="#clients">Adventure</a>
-        <a href="#contact">Random</a>
+        <% genres.forEach( genre =>{ %>
+        <a href="/genre/<%= genre %>"><%= genre %></a>
+        <% });%>
     </div>
 </aside>

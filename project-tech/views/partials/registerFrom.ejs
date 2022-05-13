@@ -1,5 +1,5 @@
   <div class="row">
-    <form action="#" method="POST" id="register">
+    <form action="/register" method="POST" id="register">
 
       <h1>Register</h1>
       <p>Please fill in this form to create an account.</p>
@@ -9,6 +9,14 @@
         <div class="col-12 col-md-6">
           <section>
 
+             <fieldset>
+              <label for="profile_photo">Profile Photo</label>
+              <div>
+                <img src="/img/default-user.jpg" id="profileImage" alt="default profile img">
+                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" capture>
+              </div>
+            </fieldset>
+            
             <fieldset class="required">
               <label for="name">Name</label>
               <input type="text" placeholder="Enter your name" name="name" id="name" >
@@ -16,7 +24,7 @@
 
             <fieldset class="required">
               <label for="email">Email</label>
-              <input type="text" placeholder="Enter Email" name="email" id="email" >
+              <input type="email" placeholder="Enter Email" name="email" id="email" >
             </fieldset>
 
             <fieldset>
@@ -24,13 +32,6 @@
               <textarea id="description" name="description" rows="4" cols="50"></textarea>
             </fieldset>
 
-            <fieldset>
-              <label for="profile_photo">Profile Photo</label>
-              <div>
-                <img src="/img/default-user.jpg" id="profileImage" alt="default profile img">
-                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" capture>
-              </div>
-            </fieldset>
           </section>
         </div>
 
