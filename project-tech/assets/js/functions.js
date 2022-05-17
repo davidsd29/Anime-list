@@ -15,3 +15,15 @@ window.onclick = (e) => {
     }
 }
 
+// const anime = document.querySelectorAll(".draggable");
+// const moveUp = document.getElementById("move-up");
+// const moveDown = document.getElementById("move-down");
+
+    // moveUp.addEventListener('click', () => {
+
+    // });
+
+
+    // moveDown.addEventListener('click', () => {
+
+    // });

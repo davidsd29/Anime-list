@@ -13,9 +13,16 @@
                     <h1><%= animes.name %></h1>
                     <h2>Info:</h2>
                     <p><%= animes.storyline %></p>
-                    <p>Genres: <%= animes.categories %> </p>
-                    <form action="/like" method="POST">
+                    <p>Genres: <%= animes.genre %> </p>
+                    <form action="/like" id="like" method="POST">
+                        <% if(animes.like == true){ %>
+                        <input type="submit" class="liked" name="liked" value="Liked" disabled>
+                        <span class="tooltiptext">Anime is already liked. To dislike go to "My list"</span>
+                        <% } else{ %>
                         <input type="submit" class="btn" name="like" value="Like">
+                        <% } %>
+
+
                     </form>
                 </div>
             </section>

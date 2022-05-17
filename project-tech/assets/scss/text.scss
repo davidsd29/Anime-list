@@ -21,4 +21,12 @@ a {
     &:hover {
         color: color(hover);
     }
+
+    &:focus {
+        color: color(focus);
+    }
+
+    &:active {
+        color: color(active);
+    }
 }

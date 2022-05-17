@@ -1,10 +1,12 @@
 @import 'helpers/variables';
 @import 'helpers/mixins';
 @import 'helpers/function';
+@import 'structure';
 @import 'nav';
 @import 'text';
 @import 'form';
-@import 'structure';
+@import '404';
+
 
 *{
     padding: 0;

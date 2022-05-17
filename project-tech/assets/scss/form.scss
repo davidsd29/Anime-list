@@ -5,11 +5,10 @@
   #login-form {
       display: none;
       position: fixed;
-      z-index: 1;
+      z-index: 3;
       left: 0;
-      top: 50px;
+      top: 5px;
       height: 100%;
-      overflow: auto;
       padding-top: 60px;
       transition: 1s;
 
@@ -224,11 +223,9 @@
           color: color(tertiary);
       }
 
-
       .row {
           margin-top: 30px;
       }
-
 
       .sign-In {
           text-align: center;
@@ -273,3 +270,84 @@
           }
       }
   }
+
+  .liked {
+      border: none;
+      padding: 10px;
+      border-radius: 1em;
+      text-decoration: none;
+      text-align: center;
+      background: color(tertiary);
+      filter: grayscale(80%);
+
+      &:hover {
+          cursor: not-allowed;
+          background-color: none;
+          color: none;
+
+          &+.tooltiptext {
+              visibility: visible;
+          }
+      }
+  }
+
+
+
+  .tooltiptext {
+      visibility: hidden;
+      background-color: gray;
+      color: #fff;
+      text-align: center;
+      font-style: italic;
+      border-radius: 6px;
+      padding: 5px;
+      margin-left: 17px;
+
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+
+      &::after {
+          content: "";
+          position: absolute;
+
+          top: 13%;
+          left: -28px;
+          margin-left: -5px;
+          border-width: 20px;
+          border-style: solid;
+          border-color: transparent gray transparent transparent;
+
+          @include respond-to(from-md) {
+              top: 6%;
+              left: -23px;
+              border-width: 15px;
+          }
+      }
+  }
+
+
+  //   #like {
+  //       .tooltiptext {
+  //           visibility: hidden;
+  //           width: 120px;
+  //           background-color: color(primary);
+  //           color: #fff;
+  //           text-align: center;
+  //           border-radius: 6px;
+  //           padding: 5px 0;
+
+  //           /* Position the tooltip */
+  //           position: absolute;
+  //           z-index: 1;
+  //           border: 1px solid gray;
+  //       }
+
+  //       &:hover {
+  //           .tooltiptext {
+  //               visibility: visible;
+  //           }
+
+  //       }
+
+  //   }

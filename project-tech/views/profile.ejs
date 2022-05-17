@@ -22,7 +22,7 @@
 
                     <!-- add where user id = session user id -->
                     <% animes.forEach( anime =>{ %>
-                        <% if (anime.like == "Like"){%>
+                        <% if (anime.like == true){%>
                         <%- include('partials/loop/anime', {
                                 anime: anime
                             }); %>

@@ -17,8 +17,8 @@
             <a href="/anime/<%= anime.id %>/<%= anime.slug %>">Read more...</a>
 
             <div>
-                <button>Move up</button>
-                <button>Move down</button>
+                <button id="move-up">Move up</button>
+                <button id="move-down">Move down</button>
                 <form action="/delete" method="POST">
                     <button type="submit" name="id" id="delete" value="<%= anime.id %>"><i  class="bi bi-trash"></i></button>
                 </form>

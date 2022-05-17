@@ -1,3 +1,166 @@
+body {
+  background: #1d1d1d;
+  color: #FFFFFF;
+  font-family: cursive;
+}
+
+.logo {
+  width: 100%;
+  filter: invert(1);
+}
+
+.hidden {
+  display: none;
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.draggable {
+  cursor: move;
+}
+.draggable.dragging {
+  opacity: 0.5;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 1em;
+  text-decoration: none;
+  text-align: center;
+  background-color: #08fdd8;
+  color: #1d1d1d;
+}
+.btn:focus-within {
+  color: #FFFFFF;
+}
+.btn:hover {
+  background-color: #e60de6;
+  color: #FFFFFF;
+}
+.btn:focus {
+  background-color: #e0113e;
+}
+.btn:active {
+  background-color: darkblue;
+}
+
+.anime-entry {
+  margin-top: 2em;
+}
+.anime-entry a {
+  margin-top: 10px;
+  flex-direction: column;
+  text-align: center;
+}
+.anime-entry a#add-new-anime img {
+  padding: 14px;
+  border: 2px solid black;
+  width: 120px;
+}
+.anime-entry a#add-new-anime:hover img {
+  border-color: gray;
+  filter: contrast(0.5);
+}
+.anime-entry a img {
+  height: 12em;
+  object-fit: contain;
+}
+
+.anime-list-entry {
+  margin-top: 2em;
+}
+.anime-list-entry .row {
+  margin: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px dotted grey;
+}
+.anime-list-entry .row aside {
+  padding: 20px;
+  text-align: initial;
+}
+.anime-list-entry .row aside a {
+  color: #08fdd8;
+}
+.anime-list-entry .row aside .options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.anime-list-entry .row aside .options div {
+  display: flex;
+}
+.anime-list-entry .row aside .options div button {
+  padding: 5px;
+}
+.anime-list-entry .row aside .options div button#delete {
+  background: none;
+  border: none;
+  padding: none;
+}
+.anime-list-entry .row aside .options div button#delete i {
+  color: #08fdd8;
+  font-size: x-large;
+  cursor: pointer;
+}
+.anime-list-entry .row aside .options div button#delete i:hover {
+  color: #e60de6;
+}
+.anime-list-entry .row img {
+  height: 12em;
+  object-fit: contain;
+  transition: 1s;
+}
+.anime-list-entry .row img:hover {
+  transform: scale(0.8);
+}
+
+.single {
+  margin-top: 2em;
+}
+.single .info {
+  background: black;
+  padding: 20px;
+}
+@media screen and (min-width: 768px) {
+  .single .info {
+    margin-right: 10px;
+  }
+}
+.single .info img {
+  width: 100%;
+}
+.single .episode #quote {
+  font-style: italic;
+  max-width: 700px;
+  text-align: center;
+}
+.single .episode p {
+  cursor: pointer;
+  border-bottom: 1px dotted grey;
+}
+
+.profile {
+  margin-top: 2em;
+}
+.profile .profile-info {
+  padding: 20px;
+  align-items: center;
+  background: linear-gradient(black, #1d1d1d);
+}
+.profile .profile-info img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -77,12 +240,12 @@ header .menu-toggle span::after {
 }
 header .mobile-menu {
   position: fixed;
-  top: 4em;
+  top: 5em;
   left: 0;
   height: 200vw;
   padding-top: 20px;
   background: inherit;
-  z-index: 100;
+  z-index: 2;
 }
 header .mobile-menu .row {
   justify-content: center;
@@ -196,6 +359,12 @@ a {
 a:hover {
   color: #e60de6;
 }
+a:focus {
+  color: #e0113e;
+}
+a:active {
+  color: darkblue;
+}
 
 form {
   color: #FFFFFF;
@@ -204,11 +373,10 @@ form {
 #login-form {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   left: 0;
-  top: 50px;
+  top: 5px;
   height: 100%;
-  overflow: auto;
   padding-top: 60px;
   transition: 1s;
   /* Modal Content/Box */
@@ -459,167 +627,70 @@ form {
   margin-bottom: 20px;
 }
 
-body {
-  background: #1d1d1d;
-  color: #FFFFFF;
-  font-family: cursive;
-}
-
-.logo {
-  width: 100%;
-  filter: invert(1);
-}
-
-.hidden {
-  display: none;
-}
-
-.blur {
-  filter: blur(10px);
-}
-
-.draggable {
-  cursor: move;
-}
-.draggable.dragging {
-  opacity: 0.5;
-}
-
-.btn {
+.liked {
   border: none;
   padding: 10px;
-  cursor: pointer;
   border-radius: 1em;
   text-decoration: none;
   text-align: center;
-  background-color: #08fdd8;
-  color: #1d1d1d;
+  background: #08fdd8;
+  filter: grayscale(80%);
 }
-.btn:focus-within {
-  color: #FFFFFF;
+.liked:hover {
+  cursor: not-allowed;
+  background-color: none;
+  color: none;
 }
-.btn:hover {
-  background-color: #e60de6;
-  color: #FFFFFF;
-}
-.btn:focus {
-  background-color: #e0113e;
-}
-.btn:active {
-  background-color: darkblue;
+.liked:hover + .tooltiptext {
+  visibility: visible;
 }
 
-.anime-entry {
-  margin-top: 2em;
-}
-.anime-entry a {
-  margin-top: 10px;
-  flex-direction: column;
+.tooltiptext {
+  visibility: hidden;
+  background-color: gray;
+  color: #fff;
   text-align: center;
-}
-.anime-entry a#add-new-anime img {
-  padding: 14px;
-  border: 2px solid black;
-  width: 120px;
-}
-.anime-entry a#add-new-anime:hover img {
-  border-color: gray;
-  filter: contrast(0.5);
-}
-.anime-entry a img {
-  height: 12em;
-  object-fit: contain;
-}
-
-.anime-list-entry {
-  margin-top: 2em;
-}
-.anime-list-entry .row {
-  margin: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  align-items: center;
-  border-bottom: 1px dotted grey;
-}
-.anime-list-entry .row aside {
-  padding: 20px;
-  text-align: initial;
-}
-.anime-list-entry .row aside a {
-  color: #08fdd8;
-}
-.anime-list-entry .row aside .options {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-.anime-list-entry .row aside .options div {
-  display: flex;
-}
-.anime-list-entry .row aside .options div button {
+  font-style: italic;
+  border-radius: 6px;
   padding: 5px;
+  margin-left: 17px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
 }
-.anime-list-entry .row aside .options div button#delete {
-  background: none;
-  border: none;
-  padding: none;
-}
-.anime-list-entry .row aside .options div button#delete i {
-  color: #08fdd8;
-  font-size: x-large;
-  cursor: pointer;
-}
-.anime-list-entry .row aside .options div button#delete i:hover {
-  color: #e60de6;
-}
-.anime-list-entry .row img {
-  height: 12em;
-  object-fit: contain;
-  transition: 1s;
-}
-.anime-list-entry .row img:hover {
-  transform: scale(0.8);
-}
-
-.single {
-  margin-top: 2em;
-}
-.single .info {
-  background: black;
-  padding: 20px;
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 13%;
+  left: -28px;
+  margin-left: -5px;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent gray transparent transparent;
 }
 @media screen and (min-width: 768px) {
-  .single .info {
-    margin-right: 10px;
+  .tooltiptext::after {
+    top: 6%;
+    left: -23px;
+    border-width: 15px;
   }
 }
-.single .info img {
-  width: 100%;
-}
-.single .episode #quote {
-  font-style: italic;
-  max-width: 700px;
-  text-align: center;
-}
-.single .episode p {
-  cursor: pointer;
-  border-bottom: 1px dotted grey;
-}
 
-.profile {
+.not-found {
   margin-top: 2em;
+  display: grid;
+  place-items: center;
 }
-.profile .profile-info {
-  padding: 20px;
-  align-items: center;
-  background: linear-gradient(black, #1d1d1d);
+.not-found h1 {
+  font-size: 100px;
+  font-weight: bold;
 }
-.profile .profile-info img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 50%;
+.not-found a {
+  margin-top: 20px;
+}
+.not-found img {
+  margin-left: 50px;
+  height: 200px;
 }
 
 * {

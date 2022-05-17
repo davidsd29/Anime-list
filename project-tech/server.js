@@ -64,13 +64,9 @@ const users = require('./database/users'),
 
 //Middelware (moet gebeuren voordat op je rout komt)
 app.use(express.static(path.join(__dirname, "assets")));
-// app.use(express.json);
-app.use(express.urlencoded({
-    extended: true
-}));
-// app.use((req, res) =>{
-//     res.status(404).render('404');
-// })
+app.use(express.urlencoded({extended: true}));
+
+
 
 app.set('view engine', 'ejs');
 
@@ -152,6 +148,7 @@ app.post('/register', (req, res) => {
             slug: req.body.name,
             tumbnail: req.body.tumbnail,
             rating: req.body.rating,
+            like: false,
             categories: req.body.categories,
             episodes: req.body.episodes,
             storyline: req.body.storyline,
@@ -195,7 +192,9 @@ app.post('/register', (req, res) => {
     });
 });
 
-
+app.use((req, res) =>{
+    res.status(404).render('404');
+});
 
 // call back functie
 app.listen(process.env.PORT, () => {

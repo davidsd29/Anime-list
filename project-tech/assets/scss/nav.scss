@@ -92,12 +92,12 @@ header {
 
     .mobile-menu {
         position: fixed;
-        top: 4em;
+        top: 5em;
         left: 0;
         height: 200vw;
         padding-top: 20px;
         background: inherit;
-        z-index: 100;
+        z-index: 2;
 
         .row {
             justify-content: center;
