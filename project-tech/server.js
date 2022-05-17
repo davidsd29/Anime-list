@@ -1,23 +1,73 @@
+//Database
+require('dotenv').config()
+
+const {MongoClient} = require('mongodb');
+
+
+// async function main() {
+//     const uri = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' +
+//     process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w=majority';
+
+//     const client = new MongoClient(uri);
+
+//     // verbinding maken met db
+//     try {
+//         await client.connect();
+//         // await listDatabases(client);
+
+//     } catch (e) {
+//         console.error(e);
+//     } finally{
+//         console.log("dicht")
+//         await client.close(); //om zeker te zijn dat je het sluit
+//     }
+// }
+
+// main().catch(console.error);
+
+// async function listDatabases(client){
+//     const databaseList = await client.db().admin().listDatabases();
+
+//     console.log("Databases:")
+//     databaseList.databases.forEach(db => {
+//         console.log(`- ${db.name}`)
+        
+//     });
+// }
+
+
+// client.connect(err => {
+//   const collection = client.db(`${process.env.DB_NAME}`).collection("animes");
+
+
+//   // perform actions on the collection object
+//      ;
+// console.log(collection.find())
+
+
+//   client.close();
+// });
+
+
 //connection
 const express = require('express'),
     path = require('path'),
-    app = express(),
-    port = 3000
-    // animes = require('./db')
+    app = express()
 
-    // let url = require('url');
-
-    // database info
-    const animes = require('./database/anime'),
-        users = require('./database/users'),
-        genres = require('./database/genres')
+// database info
+const animes = require('./database/anime'),
+    users = require('./database/users'),
+    genres = require('./database/genres')
 
 //Middelware (moet gebeuren voordat op je rout komt)
 app.use(express.static(path.join(__dirname, "assets")));
 // app.use(express.json);
 app.use(express.urlencoded({
     extended: true
-}))
+}));
+// app.use((req, res) =>{
+//     res.status(404).render('404');
+// })
 
 app.set('view engine', 'ejs');
 
@@ -121,13 +171,12 @@ app.post('/register', (req, res) => {
 
 
 // DELETE
-
-app.get('/delete?id:id', (req, res) => {
+app.delete('/delete?id:id', (req, res) => {
 
 })
 
 
 // call back functie
-app.listen(port, () => {
-    console.log(`code is running in port:${port}`)
+app.listen(process.env.PORT, () => {
+    console.log(`code is running in port:${process.env.PORT}`)
 });

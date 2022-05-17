@@ -581,6 +581,11 @@ body {
 .single .info img {
   width: 100%;
 }
+.single .episode #quote {
+  font-style: italic;
+  max-width: 700px;
+  text-align: center;
+}
 .single .episode p {
   cursor: pointer;
   border-bottom: 1px dotted grey;

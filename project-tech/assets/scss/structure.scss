@@ -17,10 +17,10 @@ body {
     filter: blur(10px);
 }
 
-.draggable{
+.draggable {
     cursor: move;
 
-    &.dragging{
+    &.dragging {
         opacity: .5;
     }
 }
@@ -151,7 +151,15 @@ body {
         }
     }
 
+
+
     .episode {
+
+        #quote {
+            font-style: italic;
+            max-width: 700px;
+            text-align: center;
+        }
 
         p {
             cursor: pointer;
