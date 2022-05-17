@@ -1,12 +1,11 @@
 const form = {
-    name: document.getElementById(" register name"),
-    email: document.getElementById("register email"),
-    message: document.getElementById("register description"),
-    photo: document.getElementById("register imageUpload"),
-    username: document.getElementById("register username"),
-    psw: document.getElementById("register psw"),
-    pswRepeat: document.getElementById("register psw-repeat"),
-    submit: document.getElementById("register submit"),
+    name: document.querySelector(" #register #name"),
+    email: document.querySelector("#register #email"),
+    message: document.querySelector("#register #description"),
+    photo: document.querySelector("#register #imageUpload"),
+    username: document.querySelector("#register #psw"),
+    pswRepeat: document.querySelector("#register #psw-repeat"),
+    submit: document.querySelector("#register #submit"),
 }
 
 const errorMessages = {

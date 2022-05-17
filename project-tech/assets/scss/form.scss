@@ -1,6 +1,6 @@
   form {
-    color: color(quaternary);
-}
+      color: color(quaternary);
+  }
 
   #login-form {
       display: none;
@@ -182,11 +182,16 @@
                   input {
                       border: 2px solid red;
 
-                      &::placeholder, #error {
+                      &::placeholder {
                           color: red;
                           font-style: italic;
                       }
                   }
+              }
+
+              #error {
+                  color: red;
+                  font-style: italic;
               }
           }
 

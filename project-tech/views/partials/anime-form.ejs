@@ -45,7 +45,7 @@
 
                       <fieldset class="required">
                           <label for="genre">Choose a Gerne:</label><br>
-                          <select id="genre" name="genre">
+                          <select multiple id="genre" name="genre">
                               <% genres.forEach( genre =>{ %>
                               <option value="<%= genre %>"><%= genre %></option>
                               <% });%>

@@ -1,11 +1,11 @@
 const form = {
-    photo: document.getElementById("new-anime tumbnail"),
-    name: document.getElementById("new-anime name"),
-    rating: document.getElementById("new-anime rating"),
-    genre: document.getElementById("new-anime genre"),
-    episodes: document.getElementById("new-anime episodes"),
-    storyline: document.getElementById("new-anime storyline"),
-    submit: document.getElementById("new-anime submit"),
+    photo: document.querySelector("#new-anime #tumbnail"),
+    name: document.querySelector("#new-anime #name"),
+    rating: document.querySelector("#new-anime #rating"),
+    genre: document.querySelector("#new-anime #genre"),
+    episodes: document.querySelector("#new-anime #episodes"),
+    storyline: document.querySelector("#new-anime #storyline"),
+    submit: document.querySelector("#new-anime #submit"),
 }
 
 const errorMessages = {
@@ -77,7 +77,7 @@ function errorResponse() {
         } else if (key == "episodes") {
             document.getElementsByName('episodes')[0].placeholder = value;
         } else if (key == "rating") {
-            document.getElementById('error').text.textContent = value;
+            document.getElementById('error').textContent = value;
         }
 
         // // looping through the whole form 

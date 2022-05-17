@@ -61,7 +61,7 @@ body {
         flex-direction: column;
         text-align: center;
 
-        &:first-of-type {
+        &#add-new-anime {
             img {
                 padding: 14px;
                 border: 2px solid black;
@@ -107,18 +107,34 @@ body {
                 align-items: center;
                 justify-content: space-between;
 
-                button {
-                    padding: 5px;
-                }
+                div {
+                    display: flex;
 
-                i {
-                    font-size: x-large;
-                    cursor: pointer;
+                    button {
+                        padding: 5px;
 
-                    &:hover {
-                        color: color(hover);
+                        &#delete {
+                            background: none;
+                            border: none;
+                            padding: none;
+
+                            i {
+                                color: color(tertiary);
+                                font-size: x-large;
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: color(hover);
+                                }
+                            }
+
+                        }
                     }
+
                 }
+
+
+
             }
         }
 

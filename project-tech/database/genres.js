@@ -14,6 +14,7 @@ const genres = [
     "mystery",
     "sci-fi",
     "psychological",
+    "fighting",
 ];
 
 

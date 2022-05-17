@@ -19,7 +19,10 @@
             <div>
                 <button>Move up</button>
                 <button>Move down</button>
-                <a href="/delete?id=<%= anime.id %>"> <i class="bi bi-trash"></i></a>
+                <form action="/delete" method="POST">
+                    <button type="submit" name="id" id="delete" value="<%= anime.id %>"><i  class="bi bi-trash"></i></button>
+                </form>
+                <!-- <a href="/delete?id=<%= anime.id %>"> <i class="bi bi-trash"></i></a> -->
 
             </div>
         </div>

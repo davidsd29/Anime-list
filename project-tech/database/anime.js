@@ -6,7 +6,7 @@ const anime = [{
     tumbnail: "/img/test.jpg",
     rating: 4,
     like: "",
-    genre: "adventure",
+    genre: ["adventure"],
     episodes: 95,
     storyline: "orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in orci nec ante facilisis luctus id ac metus. Donec id dolor at diam faucibus egestas. Vestibulum non euismod elit. Donec risus libero, dapibus facilisis leo et, euismod hendrerit nisi."
 }, {
@@ -16,7 +16,7 @@ const anime = [{
     tumbnail: "/img/test2.jpg",
     rating: 4,
     like: "Like",
-    genre: "horror",
+    genre: ["action", "horror"],
     episodes: 55,
     storyline: "orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in orci nec ante facilisis luctus id ac metus. Donec id dolor at diam faucibus egestas. Vestibulum non euismod elit. Donec risus libero, dapibus facilisis leo et, euismod hendrerit nisi.",
 }, {
@@ -26,7 +26,7 @@ const anime = [{
     tumbnail: "/img/test3.jpg",
     rating: 2,
     like: "",
-    genre: "fantasy",
+    genre: ["fantasy"],
     episodes: 995,
     storyline: "orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in orci nec ante facilisis luctus id ac metus. Donec id dolor at diam faucibus egestas. Vestibulum non euismod elit. Donec risus libero, dapibus facilisis leo et, euismod hendrerit nisi.",
 }, {
@@ -36,7 +36,7 @@ const anime = [{
     tumbnail: "/img/test5.jpg",
     rating: 5,
     like: "Like",
-     genre: "fighting",
+     genre: ["fighting", "action"],
     episodes: 12,
     storyline: "orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in orci nec ante facilisis luctus id ac metus. Donec id dolor at diam faucibus egestas. Vestibulum non euismod elit. Donec risus libero, dapibus facilisis leo et, euismod hendrerit nisi.",
 }, {
@@ -46,8 +46,7 @@ const anime = [{
     tumbnail: "/img/test4.jpg",
     rating: 5,
     like: "Like",
-    // genre: ["Murder, Action"],
-    genre: "murder",
+    genre: ["murder"],
     episodes: 24,
     storyline: "orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in orci nec ante facilisis luctus id ac metus. Donec id dolor at diam faucibus egestas. Vestibulum non euismod elit. Donec risus libero, dapibus facilisis leo et, euismod hendrerit nisi.",
 }];

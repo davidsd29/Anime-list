@@ -102,6 +102,9 @@ header .mobile-menu ul {
   padding: 6px 8px 6px 16px;
   display: block;
 }
+.sidebar a::first-letter {
+  text-transform: uppercase;
+}
 
 .mobile-sidebar {
   width: 100%;
@@ -359,9 +362,13 @@ form {
 #new-anime fieldset.required.invalid input {
   border: 2px solid red;
 }
-#register fieldset.required.invalid input::placeholder, #register fieldset.required.invalid input #error,
-#new-anime fieldset.required.invalid input::placeholder,
-#new-anime fieldset.required.invalid input #error {
+#register fieldset.required.invalid input::placeholder,
+#new-anime fieldset.required.invalid input::placeholder {
+  color: red;
+  font-style: italic;
+}
+#register fieldset.required #error,
+#new-anime fieldset.required #error {
   color: red;
   font-style: italic;
 }
@@ -510,12 +517,12 @@ body {
   flex-direction: column;
   text-align: center;
 }
-.anime-entry a:first-of-type img {
+.anime-entry a#add-new-anime img {
   padding: 14px;
   border: 2px solid black;
   width: 120px;
 }
-.anime-entry a:first-of-type:hover img {
+.anime-entry a#add-new-anime:hover img {
   border-color: gray;
   filter: contrast(0.5);
 }
@@ -547,14 +554,23 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.anime-list-entry .row aside .options button {
+.anime-list-entry .row aside .options div {
+  display: flex;
+}
+.anime-list-entry .row aside .options div button {
   padding: 5px;
 }
-.anime-list-entry .row aside .options i {
+.anime-list-entry .row aside .options div button#delete {
+  background: none;
+  border: none;
+  padding: none;
+}
+.anime-list-entry .row aside .options div button#delete i {
+  color: #08fdd8;
   font-size: x-large;
   cursor: pointer;
 }
-.anime-list-entry .row aside .options i:hover {
+.anime-list-entry .row aside .options div button#delete i:hover {
   color: #e60de6;
 }
 .anime-list-entry .row img {

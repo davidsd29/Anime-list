@@ -1,7 +1,9 @@
 //Database
 require('dotenv').config()
 
-const {MongoClient} = require('mongodb');
+const {
+    MongoClient
+} = require('mongodb');
 
 
 // async function main() {
@@ -31,7 +33,7 @@ const {MongoClient} = require('mongodb');
 //     console.log("Databases:")
 //     databaseList.databases.forEach(db => {
 //         console.log(`- ${db.name}`)
-        
+
 //     });
 // }
 
@@ -55,9 +57,10 @@ const express = require('express'),
     app = express()
 
 // database info
-const animes = require('./database/anime'),
-    users = require('./database/users'),
+const users = require('./database/users'),
     genres = require('./database/genres')
+
+    let animes = require('./database/anime')
 
 //Middelware (moet gebeuren voordat op je rout komt)
 app.use(express.static(path.join(__dirname, "assets")));
@@ -81,7 +84,7 @@ app.get('/', (req, res) => {
         // res.render('index', database )
     })
     .get('/anime/:id/:slug', (req, res) => {
-        const anime = animes.every(element => element.id == req.params.id);
+        const anime = animes.find(element => element.id == req.params.id);
         res.render('single', {
             animes: anime,
             genres
@@ -93,16 +96,16 @@ app.get('/', (req, res) => {
             genres
         })
     })
-        // .get('/anime?genre=:genre', (req, res) => {
-    .get('/genre=:genre', (req, res) => {
+    // .get('/anime?genre=:genre', (req, res) => {
+    .get('/genre', (req, res) => {
         // const genre = animes.find(element => element.genre == req.params.genre);
-        let genre = animes.filter(x =>{
-            console.log(x.genre)
-            return x.genre.includes(req.params.genre)
+        let genre = animes.filter(x => {
+            return x.genre.includes(req.query.genre)
         });
 
         res.render('genres', {
-            genres, genre
+            genres,
+            genre
         })
     })
 
@@ -160,6 +163,7 @@ app.post('/register', (req, res) => {
         });
     })
     .post('/like', (req, res) => {
+         // update waar anime.like waar anime.id = req.body.id naar "like"  
         console.log(req.body)
         const id = req.params.id
 
@@ -172,13 +176,25 @@ app.post('/register', (req, res) => {
             animes,
             genres
         });
+    })
+
+
+    // DELETE
+    .post('/delete', (req, res) => {
+
+   // update waar anime.like waar anime.id = req.body.id naar ""  
+   //maar voor nu dit:
+  animes = animes.filter(x => {
+        if (!(x.id == req.body.id)) {
+            return x
+        }
     });
 
+    res.render('mylist', {
+        animes, genres
+    });
+});
 
-// DELETE
-app.delete('/delete?id:id', (req, res) => {
-
-})
 
 
 // call back functie

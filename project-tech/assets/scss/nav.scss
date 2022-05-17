@@ -119,6 +119,10 @@ header {
     a {
         padding: 6px 8px 6px 16px;
         display: block;
+
+        &::first-letter{
+            text-transform: uppercase;
+        }
     }
 }
 
