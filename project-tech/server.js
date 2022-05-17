@@ -81,7 +81,7 @@ app.get('/', (req, res) => {
         // res.render('index', database )
     })
     .get('/anime/:id/:slug', (req, res) => {
-        const anime = animes.find(element => element.id == req.params.id);
+        const anime = animes.every(element => element.id == req.params.id);
         res.render('single', {
             animes: anime,
             genres
@@ -93,11 +93,16 @@ app.get('/', (req, res) => {
             genres
         })
     })
-    .get('/genres/:genre', (req, res) => {
-        const anime = animes.find(element => element.id == req.params.id);
+        // .get('/anime?genre=:genre', (req, res) => {
+    .get('/genre=:genre', (req, res) => {
+        // const genre = animes.find(element => element.genre == req.params.genre);
+        let genre = animes.filter(x =>{
+            console.log(x.genre)
+            return x.genre.includes(req.params.genre)
+        });
+
         res.render('genres', {
-            anime: anime,
-            genres
+            genres, genre
         })
     })
 
