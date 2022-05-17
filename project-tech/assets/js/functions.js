@@ -1,8 +1,10 @@
 // login functions
-const modal = document.getElementById("login-form");
+const modal = document.getElementById("login-form")
 
 function openLogin() {
+    mobileMenu.classList.add("d-none");
     modal.style.display = "block";
+
 }
 
 function closeLogin() {
@@ -19,11 +21,11 @@ window.onclick = (e) => {
 // const moveUp = document.getElementById("move-up");
 // const moveDown = document.getElementById("move-down");
 
-    // moveUp.addEventListener('click', () => {
+// moveUp.addEventListener('click', () => {
 
-    // });
+// });
 
 
-    // moveDown.addEventListener('click', () => {
+// moveDown.addEventListener('click', () => {
 
-    // });
+// });
