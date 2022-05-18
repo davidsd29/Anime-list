@@ -23,8 +23,7 @@ let validateField = (input, value) => {
 
     if (value == "")
         return false
-
-    console.log(validateField);
+        
     return true
 }
 

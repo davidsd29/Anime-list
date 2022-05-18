@@ -1,9 +1,32 @@
 //Database
 require('dotenv').config()
 
+// const {
+//     MongoClient
+// } = require('mongodb');
+
 const {
-    MongoClient
+    MongoClient,
+    ServerApiVersion
 } = require('mongodb');
+const uri = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' +
+    process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w=majority';
+
+const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: ServerApiVersion.v1
+});
+client.connect(err => {
+    const collection = client.db("mydb").collection("animes");
+    console.log("jup")
+
+    const cursor = collection.find({name:"naruto"});
+    console.log(cursor);
+
+    // perform actions on the collection object
+    // client.close();
+});
 
 
 // async function main() {
@@ -43,9 +66,6 @@ const {
 
 
 //   // perform actions on the collection object
-//      ;
-// console.log(collection.find())
-
 
 //   client.close();
 // });
@@ -60,11 +80,13 @@ const express = require('express'),
 const users = require('./database/users'),
     genres = require('./database/genres')
 
-    let animes = require('./database/anime')
+let animes = require('./database/anime')
 
 //Middelware (moet gebeuren voordat op je rout komt)
 app.use(express.static(path.join(__dirname, "assets")));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({
+    extended: true
+}));
 
 
 
@@ -72,7 +94,6 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', (req, res) => {
-        console.log('sdfjl')
         res.render('index', {
             animes,
             genres
@@ -160,8 +181,7 @@ app.post('/register', (req, res) => {
         });
     })
     .post('/like', (req, res) => {
-         // update waar anime.like waar anime.id = req.body.id naar "like"  
-        console.log(req.body)
+        // update waar anime.like waar anime.id = req.body.id naar "like"  
         const id = req.params.id
 
         animes.push({
@@ -179,20 +199,21 @@ app.post('/register', (req, res) => {
     // DELETE
     .post('/delete', (req, res) => {
 
-   // update waar anime.like waar anime.id = req.body.id naar ""  
-   //maar voor nu dit:
-  animes = animes.filter(x => {
-        if (!(x.id == req.body.id)) {
-            return x
-        }
+        // update waar anime.like waar anime.id = req.body.id naar ""  
+        //maar voor nu dit:
+        animes = animes.filter(x => {
+            if (!(x.id == req.body.id)) {
+                return x
+            }
+        });
+
+        res.render('mylist', {
+            animes,
+            genres
+        });
     });
 
-    res.render('mylist', {
-        animes, genres
-    });
-});
-
-app.use((req, res) =>{
+app.use((req, res) => {
     res.status(404).render('404');
 });
 
