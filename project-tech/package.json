@@ -20,11 +20,16 @@
   },
   "homepage": "https://github.com/davidsd29/Block-tech#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.7",
     "express": "^4.17.3",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
     "heroku": "^7.60.2",
-    "mongoose": "^6.3.3"
+    "mongoose": "^6.3.3",
+    "passport": "^0.5.3",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

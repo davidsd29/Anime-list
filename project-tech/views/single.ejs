@@ -3,39 +3,49 @@
 <main>
     <div class="row">
         <section class="col-12 col-md-10 single">
+            <% anime.forEach( anime =>{ %>
 
-            <section class="row info">
+
+
+            <section class="row detail">
                 <div class="col-12 col-md-4">
-                    <img src="<%= animes.tumbnail %>" alt=" Anime cover">
+                    <img src="<%= anime.tumbnail %>" alt=" Anime cover">
 
                 </div>
-                <div class="col-12 col-md-8">
-                    <h1><%= animes.name %></h1>
+                <div class="col-12 col-md-8 info">
+                    <h1><%= anime.name %></h1>
                     <h2>Info:</h2>
-                    <p><%= animes.storyline %></p>
-                    <p>Genres: <%= animes.genre %> </p>
-                    <form action="/like" id="like" method="POST">
-                        <% if(animes.like == true){ %>
-                        <input type="submit" class="liked" name="liked" value="Liked" disabled>
-                        <span class="tooltiptext">Anime is already liked. To dislike go to "My list"</span>
-                        <% } else{ %>
-                        <input type="submit" class="btn" name="like" value="Like">
-                        <% } %>
-
-
-                    </form>
+                    <p><%= anime.storyline %></p>
+                    <p>Genres: <%= anime.genre %> </p>
+                    <div>
+                        <form action="/like" id="like" method="POST">
+                            <% if(anime.like == true){ %>
+                            <input type="submit" class="liked" name="liked" value="Liked" disabled>
+                            <span class="tooltiptext">Anime is already liked. To dislike go to "My list"</span>
+                            <% } else{ %>
+                            <button type="submit" class="btn" name="like"  value="<%= anime._id %>">Like</button>
+                            <% } %>
+                        </form>
+                        <form action="/delete" method="POST">
+                            <button type="submit" name="delete" id="delete" value="<%= anime._id %>">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            
+                        </form>
+                    </div>
                 </div>
             </section>
 
             <section class="episode">
                 <p id="quote"></p>
                 <h3>Episode List</h3>
-                <% for(let i = 1; i < animes.episodes; i++) {%>
+                <% for(let i = 1; i < anime.episodes; i++) {%>
 
-                <p><%= animes.name %> Episode Subbed <%= i %></p>
+                <p><%= anime.name %> Episode Subbed <%= i %></p>
 
                 <% } %>
             </section>
+            <% }); %>
         </section>
 
         <%- include('partials/sidebar'); %>

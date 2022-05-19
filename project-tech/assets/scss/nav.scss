@@ -115,9 +115,10 @@ header {
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
+    padding-left: 0;
 
     a {
-        padding: 6px 8px 6px 16px;
+        padding: 6px 8px 6px;
         display: block;
 
         &::first-letter{

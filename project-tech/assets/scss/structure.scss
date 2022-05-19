@@ -113,7 +113,7 @@ body {
                     button {
                         padding: 5px;
 
-                        &#delete {
+                        &#remove {
                             background: none;
                             border: none;
                             padding: none;
@@ -127,14 +127,9 @@ body {
                                     color: color(hover);
                                 }
                             }
-
                         }
                     }
-
                 }
-
-
-
             }
         }
 
@@ -153,20 +148,45 @@ body {
 .single {
     margin-top: 2em;
 
-    .info {
-        background: black;
+     .detail {
         padding: 20px;
+        background: black;
 
         @include respond-to(from-md) {
             margin-right: 10px;
         }
 
-
         img {
             width: 100%;
         }
-    }
 
+        .info {
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                #delete {
+                    background: none;
+                    border: none;
+                    padding: none;
+
+                    i {
+                        color: color(tertiary);
+                        font-size: x-large;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: color(hover);
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+    }
 
 
     .episode {

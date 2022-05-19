@@ -1,7 +1,7 @@
 const form = {
     photo: document.querySelector("#new-anime #tumbnail"),
     name: document.querySelector("#new-anime #name"),
-    rating: document.querySelector("#new-anime #rating"),
+    rating: document.getElementsByName("rating"),
     genre: document.querySelector("#new-anime #genre"),
     episodes: document.querySelector("#new-anime #episodes"),
     storyline: document.querySelector("#new-anime #storyline"),
@@ -12,18 +12,20 @@ const errorMessages = {
     name: "Entering your name is required ",
     genre: "Entering your genre is required ",
     episodes: "Entering number of episodes is required ",
-    rating: "Entering number of rating is required ",
+    rating: "Entering rating number is required ",
 };
 
 let contactFormulier = document.getElementById("new-anime"),
     data = {};
 
+
 // value from form[input type]
 let validateField = (input, value) => {
 
-    if (value == "")
+    if (value == "") {
         return false
-        
+    }
+
     return true
 }
 
@@ -33,7 +35,6 @@ form.submit.addEventListener("click", (e) => {
     e.preventDefault();
 
     let error = false;
-
     // looping through the whole form 
     formInput.forEach((field) => {
 
@@ -76,7 +77,7 @@ function errorResponse() {
         } else if (key == "episodes") {
             document.getElementsByName('episodes')[0].placeholder = value;
         } else if (key == "rating") {
-            document.getElementById('error').textContent = value;
+            document.getElementsByName('rating')[0].placeholder = value;
         }
 
         // // looping through the whole form 

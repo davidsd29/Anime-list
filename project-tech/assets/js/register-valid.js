@@ -16,7 +16,7 @@ const errorMessages = {
     pswRepeat: "Repeating your password is required ",
 };
 
-const validRegistration = {
+const registrationResponse = {
     frame: document.querySelector(".form-respond"),
     text: document.getElementById("serverRespond")
 }
@@ -34,10 +34,10 @@ let validateField = (input, value) => {
     return true
 }
 
-let formInput = contactFormulier.querySelectorAll("fieldset");
+let formInput = contactFormulier.querySelectorAll(" fieldset");
 
 form.submit.addEventListener("click", (e) => {
-    e.preventDefault();
+
 
     let error = false;
 
@@ -60,21 +60,24 @@ form.submit.addEventListener("click", (e) => {
             data[name] = value
 
         } else {
+            // e.preventDefault();
             errorResponse()
             field.classList.add("invalid");
             error = true
         }
     });
-
     if (error == false) {
         registerd();
         console.log("ready to send to the database");
     }
 });
 
+
+
+
 function registerd() {
-    validRegistration.text.textContent = "Thanks " + data.name + "! Your account has been made with the username: " + data.username;
-    validRegistration.frame.classList.remove("hidden");
+    registrationResponse.text.textContent = "Thanks " + data.name + "! Your account has been made with the username: " + data.username;
+    registrationResponse.frame.classList.remove("hidden");
     contactFormulier.classList.add("blur");
 }
 

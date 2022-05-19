@@ -99,17 +99,17 @@ body {
 .anime-list-entry .row aside .options div button {
   padding: 5px;
 }
-.anime-list-entry .row aside .options div button#delete {
+.anime-list-entry .row aside .options div button#remove {
   background: none;
   border: none;
   padding: none;
 }
-.anime-list-entry .row aside .options div button#delete i {
+.anime-list-entry .row aside .options div button#remove i {
   color: #08fdd8;
   font-size: x-large;
   cursor: pointer;
 }
-.anime-list-entry .row aside .options div button#delete i:hover {
+.anime-list-entry .row aside .options div button#remove i:hover {
   color: #e60de6;
 }
 .anime-list-entry .row img {
@@ -124,17 +124,35 @@ body {
 .single {
   margin-top: 2em;
 }
-.single .info {
-  background: black;
+.single .detail {
   padding: 20px;
+  background: black;
 }
 @media screen and (min-width: 768px) {
-  .single .info {
+  .single .detail {
     margin-right: 10px;
   }
 }
-.single .info img {
+.single .detail img {
   width: 100%;
+}
+.single .detail .info div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.single .detail .info div #delete {
+  background: none;
+  border: none;
+  padding: none;
+}
+.single .detail .info div #delete i {
+  color: #08fdd8;
+  font-size: x-large;
+  cursor: pointer;
+}
+.single .detail .info div #delete i:hover {
+  color: #e60de6;
 }
 .single .episode #quote {
   font-style: italic;
@@ -260,9 +278,10 @@ header .mobile-menu ul {
   background-color: #111;
   overflow-x: hidden;
   padding-top: 20px;
+  padding-left: 0;
 }
 .sidebar a {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px;
   display: block;
 }
 .sidebar a::first-letter {
@@ -406,11 +425,10 @@ form {
   }
 }
 #login-form form {
-  background-color: #1d1d1d;
+  width: 70%;
   margin: 5% auto 15% auto;
   border: 1px solid #888;
-  width: 70%;
-  /* Could be more or less, depending on screen size */
+  background-color: #1d1d1d;
   /*  Zoom Animation */
 }
 #login-form form section {
@@ -452,10 +470,10 @@ form {
 }
 #login-form form section input[type=text],
 #login-form form section input[type=password] {
+  display: inline-block;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: inherit;
@@ -505,9 +523,10 @@ form {
 #register fieldset div,
 #new-anime fieldset div {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 #register fieldset div #profileImage,
 #register fieldset div #tumbnail,
@@ -515,6 +534,10 @@ form {
 #new-anime fieldset div #tumbnail {
   height: 100px;
   cursor: pointer;
+}
+#register fieldset div #tumbnail,
+#new-anime fieldset div #tumbnail {
+  margin-bottom: 20px;
 }
 #register fieldset div #imageUpload,
 #new-anime fieldset div #imageUpload {
@@ -552,10 +575,10 @@ form {
 #new-anime fieldset input[type=email],
 #new-anime fieldset select,
 #new-anime fieldset textarea {
+  display: inline-block;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: inherit;
@@ -646,21 +669,20 @@ form {
 }
 
 .tooltiptext {
+  position: absolute;
   visibility: hidden;
-  background-color: gray;
-  color: #fff;
-  text-align: center;
-  font-style: italic;
-  border-radius: 6px;
   padding: 5px;
   margin-left: 17px;
-  /* Position the tooltip */
-  position: absolute;
+  text-align: center;
+  font-style: italic;
+  background-color: gray;
+  color: #fff;
+  border-radius: 6px;
   z-index: 1;
 }
 .tooltiptext::after {
-  content: "";
   position: absolute;
+  content: "";
   top: 13%;
   left: -28px;
   margin-left: -5px;

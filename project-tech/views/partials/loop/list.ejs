@@ -1,5 +1,5 @@
 <div class="col-12 col-md-3">
-    <a href="/anime/<%= anime.id %>/<%= anime.slug %>">
+    <a href="/anime/<%= anime._id %>/<%= anime.slug %>">
         <img src="<%= anime.tumbnail %>" alt="Anime cover">
     </a>
 </div>
@@ -14,17 +14,16 @@
         </div>
         <p><%= anime.storyline %></p>
         <div class="options">
-            <a href="/anime/<%= anime.id %>/<%= anime.slug %>">Read more...</a>
+            <a href="/anime/<%= anime._id %>/<%= anime.slug %>">Read more...</a>
 
             <div>
                 <button id="move-up">Move up</button>
                 <button id="move-down">Move down</button>
-                <form action="/delete" method="POST">
-                    <button type="submit" name="id" id="delete" value="<%= anime.id %>"><i  class="bi bi-trash"></i></button>
+                <form action="/remove-fav" method="POST">
+                    <button type="submit" name="remove" id="remove" value="<%= anime._id %>"><i  class="bi bi-trash"></i></button>
                 </form>
-                <!-- <a href="/delete?id=<%= anime.id %>"> <i class="bi bi-trash"></i></a> -->
-
             </div>
+            
         </div>
     </aside>
 </div>
