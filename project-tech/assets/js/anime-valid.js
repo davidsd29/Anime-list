@@ -5,14 +5,14 @@ const form = {
     genre: document.querySelector("#new-anime #genre"),
     episodes: document.querySelector("#new-anime #episodes"),
     storyline: document.querySelector("#new-anime #storyline"),
-    submit: document.querySelector("#new-anime #submit"),
-}
+    submit: document.querySelector("#new-anime #submit")
+};
 
 const errorMessages = {
     name: "Entering your name is required ",
     genre: "Entering your genre is required ",
     episodes: "Entering number of episodes is required ",
-    rating: "Entering rating number is required ",
+    rating: "Entering rating number is required "
 };
 
 let contactFormulier = document.getElementById("new-anime"),
@@ -32,7 +32,7 @@ let validateField = (input, value) => {
 let formInput = contactFormulier.querySelectorAll("fieldset");
 
 form.submit.addEventListener("click", (e) => {
-    e.preventDefault();
+
 
     let error = false;
     // looping through the whole form 
@@ -54,6 +54,7 @@ form.submit.addEventListener("click", (e) => {
             data[name] = value
 
         } else {
+            e.preventDefault();
             errorResponse();
             field.classList.add("invalid");
             error = true

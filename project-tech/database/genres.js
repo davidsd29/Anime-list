@@ -9,10 +9,8 @@ const genres = [
     "horror",
     "action",
     "magic",
-    "supernatural",
     "mystery",
     "sci-fi",
-    "psychological",
     "fighting",
 ];
 

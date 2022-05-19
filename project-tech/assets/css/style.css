@@ -333,6 +333,9 @@ header .mobile-menu ul {
   padding: 5px 20px;
   display: block;
 }
+.mobile-sidebar div:last-of-type a::first-letter {
+  text-transform: uppercase;
+}
 
 footer {
   width: 100%;

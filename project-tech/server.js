@@ -6,17 +6,9 @@ const express = require('express'),
     path = require('path'),
     app = express()
 
+// const bycrypt = require('bcrypt');
 
-const passport = require('passport'),
-    flash = require('express-flash'),
-    session = require('express-session')
-    // bycrypt = require('bcrypt');
-
-    const initalizePassport = require('./passport-config')
-initalizePassport(
-    passport,
-    username => users.find(user => user.username === username));
-
+ 
 // database info
 const users = require('./database/users'),
     genres = require('./database/genres')
@@ -57,15 +49,6 @@ app.use(express.static(path.join(__dirname, "assets")));
 app.use(express.urlencoded({
     extended: true
 }));
-
-app.use(flash());
-app.use(session({
-    secret: process.env.SESSION_SECRET, //gehieme wachtwoord
-    resave: false, // dont save if nothing changes
-    saveUninitialized: false // dont save an empty value in a session
-}));
-app.
-
 
 app.set('view engine', 'ejs');
 
@@ -125,14 +108,9 @@ app.get('/', async (req, res) => {
     })
     .get('/register', (req, res) => {
         res.render('register')
-    })
-    .get('/login', (req, res) => {
-        res.render('register')
     });
 
-
-
-// Form POST
+// INSERT NEW
 app.post('/register', async (req, res) => {
 
         let user = {
@@ -144,23 +122,30 @@ app.post('/register', async (req, res) => {
             discription: req.body.description
         }
 
-        await db.collection('users').insertOne({
-            user
-        });
-
-        // res.redirect('/');
+        await db.collection('users').insertOne({user});
     })
     .post('/new', async (req, res) => {
 
-        await db.collection('animes').insertOne({
-            name: req.body.name,
+         let newAnime = {
+             name: req.body.name,
             slug: req.body.name,
             tumbnail: req.body.tumbnail,
             rating: req.body.rating,
             like: false,
             categories: [req.body.genre],
             episodes: req.body.episodes,
-            storyline: req.body.storyline,
+            storyline: req.body.storyline
+         }
+
+        await db.collection('animes').insertOne({
+            name: req.body.name,
+            slug: req.body.name,
+            tumbnail: req.file ? req.file.tumbnail : null, // zet alles na de ? uit, dan krijg je een data object. Daar kan je meer mee.
+            rating: req.body.rating,
+            like: false,
+            categories: [req.body.genre],
+            episodes: req.body.episodes,
+            storyline: req.body.storyline
         });
 
         // animes.push({
@@ -175,10 +160,13 @@ app.post('/register', async (req, res) => {
         //     storyline: req.body.storyline,
         // })
         res.redirect('/');
-    })
+    });
 
-    // UPDATE
-    .post('/like', async (req, res) => {
+// LOGIN
+
+
+// UPDATE
+app.post('/like', async (req, res) => {
         await db.collection("animes").updateOne({
             _id: ObjectId(req.body.like)
         }, {
@@ -190,20 +178,10 @@ app.post('/register', async (req, res) => {
         res.redirect('/my-list');
     })
     .post('/remove-fav', async (req, res) => {
-        await db.collection("animes").updateOne({
-            _id: ObjectId(req.body.remove)
-        }, {
-            $set: {
-                like: false
-            }
-        })
-
-        const animes = await db.collection('animes').find({
-            like: true
-        }).toArray();
+        await db.collection("animes").updateOne({ _id: ObjectId(req.body.remove)}, 
+        {$set: {like: false}})
 
         res.redirect('/my-list');
-
     })
 
 

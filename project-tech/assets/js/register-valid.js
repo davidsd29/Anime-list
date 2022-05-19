@@ -40,7 +40,6 @@ form.submit.addEventListener("click", (e) => {
 
 
     let error = false;
-
     // looping through the whole form 
     formInput.forEach((field) => {
 
