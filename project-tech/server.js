@@ -13,14 +13,11 @@ const express = require('express'),
 const users = require('./database/users'),
     genres = require('./database/genres')
 
-// let validRegister = require('./assets/js/register-valid');
-// console.log(validRegister)
 const {
     MongoClient,
     ServerApiVersion,
     ObjectId,
 } = require('mongodb');
-
 
 let db = null;
 
@@ -99,7 +96,6 @@ app.get('/', async (req, res) => {
         })
     })
 
-
     //Forms
     .get('/new-anime', (req, res) => {
         res.render('newAnime', {
@@ -125,17 +121,6 @@ app.post('/register', async (req, res) => {
         await db.collection('users').insertOne({user});
     })
     .post('/new', async (req, res) => {
-
-         let newAnime = {
-             name: req.body.name,
-            slug: req.body.name,
-            tumbnail: req.body.tumbnail,
-            rating: req.body.rating,
-            like: false,
-            categories: [req.body.genre],
-            episodes: req.body.episodes,
-            storyline: req.body.storyline
-         }
 
         await db.collection('animes').insertOne({
             name: req.body.name,
@@ -183,7 +168,6 @@ app.post('/like', async (req, res) => {
 
         res.redirect('/my-list');
     })
-
 
     // DELETE
     .post('/delete', async (req, res) => {
