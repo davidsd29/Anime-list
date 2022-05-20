@@ -10,41 +10,41 @@
             <section class="row detail">
                 <div class="col-12 col-md-4">
                     <img src="<%= anime.tumbnail %>" alt=" Anime cover">
+                    <% for(let i = 0; i < anime.rating; i++) {%>
+                    <span>&#9733;</span>
+                    <% } %>
 
                 </div>
                 <div class="col-12 col-md-8 info">
                     <h1><%= anime.name %></h1>
                     <h2>Info:</h2>
                     <p><%= anime.storyline %></p>
-                    <p>Genres: <%= anime.genre %> </p>
+                    <p>Genres: <%= anime.genres %> </p>
                     <div>
                         <form action="/like" id="like" method="POST">
                             <% if(anime.like == true){ %>
                             <input type="submit" class="liked" name="liked" value="Liked" disabled>
                             <span class="tooltiptext">Anime is already liked. To dislike go to "My list"</span>
                             <% } else{ %>
-                            <button type="submit" class="btn" name="like"  value="<%= anime._id %>">Like</button>
+                            <button type="submit" class="btn" name="like" value="<%= anime._id %>">Like</button>
                             <% } %>
                         </form>
                         <form action="/delete" method="POST">
                             <button type="submit" name="delete" id="delete" value="<%= anime._id %>">
                                 <i class="bi bi-trash"></i>
                             </button>
-                            
+
                         </form>
                     </div>
                 </div>
             </section>
 
-            <section class="episode">
-                <p id="quote"></p>
-                <h3>Episode List</h3>
-                <% for(let i = 1; i < anime.episodes; i++) {%>
-
-                <p><%= anime.name %> Episode Subbed <%= i %></p>
-
-                <% } %>
+            <section class="quote">
+                <h4>Can you guess from which anime?</h4>
+                <p id="quote-text"></p>
+                <p id="quote-name"></p>
             </section>
+
             <% }); %>
         </section>
 

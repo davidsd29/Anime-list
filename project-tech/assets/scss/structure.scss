@@ -184,22 +184,24 @@ body {
             }
 
         }
-
-
     }
 
 
-    .episode {
-
-        #quote {
-            font-style: italic;
-            max-width: 700px;
-            text-align: center;
+    .quote {
+        margin-top: 2em;
+        
+        h4{
+             text-align: center;
         }
 
         p {
-            cursor: pointer;
-            border-bottom: 1px dotted grey;
+            font-style: italic;
+            max-width: 700px;
+            text-align: center;
+            
+            &#quote-name{
+                color: color(hover);
+            }
         }
     }
 }
