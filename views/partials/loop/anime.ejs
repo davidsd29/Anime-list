@@ -1,0 +1,10 @@
+<a href="/anime/<%= anime._id %>/<%= anime.slug %>" class="col-6 col-md-4 col-lg-3">
+  <img src="<%= anime.tumbnail %>" alt="Anime cover">
+  <h3><%= anime.name %></h3>
+
+  <div class="review">
+    <% for(let i = 0; i < anime.rating; i++) {%>
+      <span>&#9733;</span>
+    <% } %>
+  </div>
+</a>

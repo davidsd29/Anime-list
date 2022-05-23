@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'helpers/function';
+@import 'structure';
+@import 'nav';
+@import 'text';
+@import 'form';
+@import '404';
+
+

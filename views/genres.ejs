@@ -1,0 +1,27 @@
+<%- include('partials/header'); %>
+
+<main>
+    <div class="row">
+        <section class="anime-entry col-12 col-md-10">
+            <div class="row">
+
+                <a href="/new-anime" id="add-new-anime" class="col-6 col-md-4 col-lg-3">
+                    <img src="/img/upload.png" alt="Default anime">
+                    <h3>Add new anime</h3>
+                </a>
+
+                <% genre.forEach( anime =>{ %>
+
+                <%- include('partials/loop/anime', {
+                                anime: anime
+                            }); %>
+                <% });%>
+
+            </div>
+        </section>
+
+        <%- include('partials/sidebar'); %>
+    </div>
+</main>
+
+<%- include('partials/footer'); %>

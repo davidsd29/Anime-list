@@ -1,0 +1,7 @@
+{
+    "scssLint.showHighlights": true,
+    "scssLint.languages": [
+    
+        "scss"
+    ]
+}
