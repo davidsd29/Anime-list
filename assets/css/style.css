@@ -104,6 +104,16 @@ body {
 }
 .anime-list-entry .row aside .options div button {
   padding: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  background: transparent;
+  color: #08fdd8;
+  border-color: #08fdd8;
+}
+.anime-list-entry .row aside .options div button:hover {
+  border-color: black;
+  background: #e60de6;
+  color: black;
 }
 .anime-list-entry .row aside .options div button#remove {
   background: none;
@@ -351,6 +361,7 @@ header .mobile-menu ul {
 footer {
   width: 100%;
   padding: 1em;
+  border-top: 2px solid #08fdd8;
   background: linear-gradient(#1d1d1d, black);
 }
 footer ul {

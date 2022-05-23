@@ -112,6 +112,17 @@ body {
 
                     button {
                         padding: 5px;
+                        margin-right: 5px;
+                        border-radius: 5px;
+                        background: transparent;
+                        color: color(tertiary);
+                        border-color: color(tertiary);
+
+                        &:hover{
+                            border-color: color(secondary);
+                            background: color(hover);
+                            color: color(secondary);
+                        }
 
                         &#remove {
                             background: none;
