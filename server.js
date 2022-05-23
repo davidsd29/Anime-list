@@ -8,6 +8,8 @@ const express = require('express'),
 
 // const bycrypt = require('bcrypt');
 
+const multer  = require('multer')
+// const upload = multer({ dest: 'uploads/' })
  
 // database info
 const users = require('./database/users'),
@@ -106,26 +108,61 @@ app.get('/', async (req, res) => {
         res.render('register')
     });
 
+
+// MULTER
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, './assets/img'); // store here
+//   },
+//   tumbnail: function (req, file, cb) {
+//     cb(
+//       null,
+//       Date.now() + req.body.tumbnail // giving name and original name
+//     );
+//   },
+// });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './assets/img'); // store here
+  },
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      Date.now() + file.originalname // giving name and original name
+    );
+  },
+});
+
+const upload = multer({
+  //
+  storage: storage,
+});
+
+// datenow veranderen
+
+
 // INSERT NEW
-app.post('/register', async (req, res) => {
+app.post('/register',upload.single('tumbnail'), async (req, res) => {
 
         let user = {
             name: req.body.name,
             username: req.body.username,
             pasword: req.body.pws,
-            tumbnail: req.body.profile_photo,
+            tumbnail: req.file.filename,
             email: req.body.email,
             discription: req.body.description
         }
 
         await db.collection('users').insertOne({user});
     })
-    .post('/new', async (req, res) => {
+    .post('/new', upload.single('tumbnail'),  async (req, res) => {
 
         await db.collection('animes').insertOne({
             name: req.body.name,
             slug: req.body.name,
-            tumbnail: req.file ? req.file.tumbnail : null, // zet alles na de ? uit, dan krijg je een data object. Daar kan je meer mee.
+            tumbnail: req.file.filename,
+            // tumbnail: req.file ? req.file.filename : null, // zet alles na de ? uit, dan krijg je een data object. Daar kan je meer mee.
             rating: req.body.rating,
             like: false,
             categories: [req.body.genre],
@@ -152,13 +189,10 @@ app.post('/register', async (req, res) => {
 
 // UPDATE
 app.post('/like', async (req, res) => {
+
         await db.collection("animes").updateOne({
             _id: ObjectId(req.body.like)
-        }, {
-            $set: {
-                like: true
-            }
-        })
+        }, {$set: {like: true}})
 
         res.redirect('/my-list');
     })
