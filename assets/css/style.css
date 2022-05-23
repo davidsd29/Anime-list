@@ -7,7 +7,7 @@
 body {
   background: #1d1d1d;
   color: #FFFFFF;
-  font-family: cursive;
+  font-family: cursive, Helvetica, sans-serif;
 }
 
 .logo {
