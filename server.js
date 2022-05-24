@@ -106,6 +106,18 @@ app.get('/new-anime', (req, res) => {
     })
     .get('/register', (req, res) => {
         res.render('register')
+    })
+
+    .get('/update-anime/:id/:slug', async (req, res) => {
+        const anime = await db.collection('animes').find({
+            _id: ObjectId(req.params.id)
+        }).toArray();
+
+        res.render('updateAnime', {
+            anime,
+            users,
+            genres
+        })
     });
 
 
@@ -134,31 +146,18 @@ const storageUser = multer.diskStorage({
     },
 });
 
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, './assets/img'); // store here
-//   },
-//   filename: function (req, file, cb) {
-//     cb(
-//       null,
-//       Date.now() + file.originalname // giving name and original name
-//     );
-//   },
-// });
 
 const uploadAnime = multer({
-    //
     storage: storageAnime,
 });
 
 const uploadUser = multer({
-    //
     storage: storageUser,
 });
 
 
 // INSERT NEW
-app.post('/register', uploadAnime.single('tumbnail'), async (req, res) => {
+app.post('/register', uploadUser.single('tumbnail'), async (req, res) => {
 
         let user = {
             name: req.body.name,
@@ -173,16 +172,15 @@ app.post('/register', uploadAnime.single('tumbnail'), async (req, res) => {
             user
         });
     })
-    .post('/new', uploadUser.single('tumbnail'), async (req, res) => {
+    .post('/new', uploadAnime.single('tumbnail'), async (req, res) => {
 
         await db.collection('animes').insertOne({
             name: req.body.name,
             slug: req.body.name,
             tumbnail: req.file.filename,
-            // tumbnail: req.file ? req.file.filename : null, // zet alles na de ? uit, dan krijg je een data object. Daar kan je meer mee.
             rating: req.body.rating,
             like: false,
-            categories: [req.body.genre],
+            genres: [req.body.genre],
             episodes: req.body.episodes,
             storyline: req.body.storyline
         });
@@ -216,12 +214,34 @@ app.post('/like', async (req, res) => {
         })
 
         res.redirect('/my-list');
-    });
+    })
+    // .post('/edit-anime', async (req, res) => {
+    //     await db.collection("animes").updateMany({
+    //         _id: ObjectId(req.body.update)
+    //     }, {
+    //         $set: {
+    //             name: req.body.name
+    //         },
+    //         $set: {
+    //             slug: req.body.name
+    //         },
+    //         $set: {
+    //             rating: req.body.rating
+    //         },
+    //         $set: {
+    //             episodes: req.body.episode
+    //         },
+    //         $set: {
+    //             storyline: req.body.storyline
+    //         }
+    //     })
+
+    //     res.redirect('/');
+    // });
 
 
 // DELETE
 app.post('/delete', async (req, res) => {
-    // console.log(req.body.delete)
     await db.collection("animes").deleteOne({
         _id: ObjectId(req.body.delete)
     })

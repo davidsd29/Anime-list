@@ -5,16 +5,16 @@
         <section class="col-12 col-md-10 single">
             <% anime.forEach( anime =>{ %>
 
-
-
             <section class="row detail">
                 <div class="col-12 col-md-4">
-                    <img src="<%= anime.tumbnail %>" alt=" Anime cover">
-                    <% for(let i = 0; i < anime.rating; i++) {%>
-                    <span>&#9733;</span>
-                    <% } %>
-
+                    <img src="/uploads/animes/<%= anime.tumbnail %>" alt="Anime cover">
+                    <div class="rating">
+                        <% for(let i = 0; i < anime.rating; i++) {%>
+                        <span>&#9733;</span>
+                        <% } %>
+                    </div>
                 </div>
+
                 <div class="col-12 col-md-8 info">
                     <h1><%= anime.name %></h1>
                     <h2>Info:</h2>
@@ -29,12 +29,16 @@
                             <button type="submit" class="btn" name="like" value="<%= anime._id %>">Like</button>
                             <% } %>
                         </form>
-                        <form action="/delete" method="POST">
-                            <button type="submit" name="delete" id="delete" value="<%= anime._id %>">
-                                <i class="bi bi-trash"></i>
-                            </button>
 
-                        </form>
+                        <div>
+                            <a href="/edit-anime/<%= anime._id %>/<%= anime.slug %>"><i class="bi bi-pencil"></i></a>
+                            <form action="/delete" method="POST">
+                                <button type="submit" name="delete" id="delete" value="<%= anime._id %>">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </section>

@@ -65,15 +65,15 @@ body {
 .anime-entry a#add-new-anime img {
   padding: 14px;
   border: 2px solid black;
-  width: 120px;
 }
 .anime-entry a#add-new-anime:hover img {
   border-color: gray;
   filter: contrast(0.5);
 }
 .anime-entry a img {
-  height: 12em;
-  object-fit: contain;
+  height: 14em;
+  width: 10em;
+  object-fit: unset;
 }
 
 .anime-list-entry {
@@ -151,6 +151,11 @@ body {
 }
 .single .detail img {
   width: 100%;
+  height: 17em;
+  object-fit: contain;
+}
+.single .detail .rating {
+  text-align: center;
 }
 .single .detail .info div {
   display: flex;
@@ -161,13 +166,14 @@ body {
   background: none;
   border: none;
   padding: none;
+  margin-left: 20px;
 }
-.single .detail .info div #delete i {
+.single .detail .info div i {
   color: #08fdd8;
   font-size: x-large;
   cursor: pointer;
 }
-.single .detail .info div #delete i:hover {
+.single .detail .info div i:hover {
   color: #e60de6;
 }
 .single .quote {
@@ -178,7 +184,6 @@ body {
 }
 .single .quote p {
   font-style: italic;
-  max-width: 700px;
   text-align: center;
 }
 .single .quote p#quote-name {
