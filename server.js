@@ -8,9 +8,8 @@ const express = require('express'),
 
 // const bycrypt = require('bcrypt');
 
-const multer  = require('multer')
-// const upload = multer({ dest: 'uploads/' })
- 
+const multer = require('multer');
+
 // database info
 const users = require('./database/users'),
     genres = require('./database/genres')
@@ -96,10 +95,11 @@ app.get('/', async (req, res) => {
             animes,
             users
         })
-    })
+    });
 
-    //Forms
-    .get('/new-anime', (req, res) => {
+
+//Forms
+app.get('/new-anime', (req, res) => {
         res.render('newAnime', {
             genres
         })
@@ -110,40 +110,55 @@ app.get('/', async (req, res) => {
 
 
 // MULTER
+const storageAnime = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './assets/uploads/animes'); // store here
+    },
+    filename: function (req, file, cb) {
+        cb(
+            null,
+            Date.now() + file.originalname // giving name and original name
+        );
+    },
+});
+
+const storageUser = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './assets/uploads/users'); // store here
+    },
+    filename: function (req, file, cb) {
+        cb(
+            null,
+            Date.now() + file.originalname // giving name and original name
+        );
+    },
+});
+
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, './assets/img'); // store here
 //   },
-//   tumbnail: function (req, file, cb) {
+//   filename: function (req, file, cb) {
 //     cb(
 //       null,
-//       Date.now() + req.body.tumbnail // giving name and original name
+//       Date.now() + file.originalname // giving name and original name
 //     );
 //   },
 // });
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './assets/img'); // store here
-  },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      Date.now() + file.originalname // giving name and original name
-    );
-  },
+const uploadAnime = multer({
+    //
+    storage: storageAnime,
 });
 
-const upload = multer({
-  //
-  storage: storage,
+const uploadUser = multer({
+    //
+    storage: storageUser,
 });
-
-// datenow veranderen
 
 
 // INSERT NEW
-app.post('/register',upload.single('tumbnail'), async (req, res) => {
+app.post('/register', uploadAnime.single('tumbnail'), async (req, res) => {
 
         let user = {
             name: req.body.name,
@@ -154,9 +169,11 @@ app.post('/register',upload.single('tumbnail'), async (req, res) => {
             discription: req.body.description
         }
 
-        await db.collection('users').insertOne({user});
+        await db.collection('users').insertOne({
+            user
+        });
     })
-    .post('/new', upload.single('tumbnail'),  async (req, res) => {
+    .post('/new', uploadUser.single('tumbnail'), async (req, res) => {
 
         await db.collection('animes').insertOne({
             name: req.body.name,
@@ -170,17 +187,6 @@ app.post('/register',upload.single('tumbnail'), async (req, res) => {
             storyline: req.body.storyline
         });
 
-        // animes.push({
-        //     id: id,
-        //     name: req.body.name,
-        //     slug: req.body.name,
-        //     tumbnail: req.body.tumbnail,
-        //     rating: req.body.rating,
-        //     like: false,
-        //     categories: req.body.categories,
-        //     episodes: req.body.episodes,
-        //     storyline: req.body.storyline,
-        // })
         res.redirect('/');
     });
 
@@ -192,30 +198,41 @@ app.post('/like', async (req, res) => {
 
         await db.collection("animes").updateOne({
             _id: ObjectId(req.body.like)
-        }, {$set: {like: true}})
+        }, {
+            $set: {
+                like: true
+            }
+        })
 
         res.redirect('/my-list');
     })
     .post('/remove-fav', async (req, res) => {
-        await db.collection("animes").updateOne({ _id: ObjectId(req.body.remove)}, 
-        {$set: {like: false}})
-
-        res.redirect('/my-list');
-    })
-
-    // DELETE
-    .post('/delete', async (req, res) => {
-        // console.log(req.body.delete)
-        await db.collection("animes").deleteOne({
-            _id: ObjectId(req.body.delete)
+        await db.collection("animes").updateOne({
+            _id: ObjectId(req.body.remove)
+        }, {
+            $set: {
+                like: false
+            }
         })
 
-        res.redirect('/');
+        res.redirect('/my-list');
     });
+
+
+// DELETE
+app.post('/delete', async (req, res) => {
+    // console.log(req.body.delete)
+    await db.collection("animes").deleteOne({
+        _id: ObjectId(req.body.delete)
+    })
+
+    res.redirect('/');
+});
 
 app.use((req, res) => {
     res.status(404).render('404');
 });
+
 
 // call back functie
 app.listen(process.env.PORT, () => {

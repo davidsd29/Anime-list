@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="row profile-info">
                 <div class="col-12 col-md-3">
- <p><% console.log(users) %></p>
+                    <p><% console.log(users) %></p>
                     <!-- add where user id = session user id -->
                     <img src="<%= users[2].tumbnail %>" alt="User Profile">
                 </div>
@@ -22,12 +22,12 @@
 
                     <!-- add where user id = session user id -->
                     <% animes.forEach( anime =>{ %>
-                        <% if (anime.like == true){%>
-                        <%- include('partials/loop/anime', {
+                    <% if (anime.like == true){%>
+                    <%- include('partials/loop/anime', {
                                 anime: anime
                             }); %>
 
-                        <% }
+                    <% }
                     });%>
 
                 </div>
