@@ -24,20 +24,21 @@ See [License](/davidsd29/Anime-list/blob/main/LICENSE) for more info.
 ### Clone repository
 By adding the following line on your terminal you can clone my repository:
 
-git clone https://github.com/davidsd29/Anime-list.git
+`git clone https://github.com/davidsd29/Anime-list.git`
 
 Your computer will now clone this repository. To enter the correct file, Change directory to Anime-list.
 
 ### Install packages
 To make sure the application will function completely you have to install all packages. Enter the following rule in to your terminal:
 
-npm install
+`npm install`
 
 Now your computer has installed all packages needed for this application.
 
 ### Run server
 To see if the application is working you have to run the server. Enter the following rule in to your terminal:
 
-npm run dev or npm start
+`npm run dev` or `npm start`
 
-If the server is running, head to your brouwser and go to localhost:1234
+If the server is running, head to your brouwser and go to:
+`localhost:1234`
