@@ -1,7 +1,7 @@
 # Ainme List
 
 Do you need an app where you would like to keep track of your anime? want to like animes? Then this is the app for you!
-![](/davidsd29/Anime-list/blob/main/project-tech/assets/img/readme/homepage.png)
+![](/davidsd29/Anime-list/blob/main/assets/img/readme/homepage.png)
 
 ## About this project
 
