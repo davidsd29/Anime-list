@@ -1,21 +1,43 @@
-# Block-tech
-<h2>Week 1</h2>
-  
-In week 1 werden we overspoeld met informatie. We gaan een applicatie bouwen waar mensen/dieren dieren worden gematch.
-Hierbij kan je denken aan sportmaatjes, muziek liefhebbers ect.
+# Ainme List
 
-Ik heb gekozen om het over anime te houden. Het idee is dat mensen een profiel aan kunnen maken, doormiddel vcan te registreren. 
-Daarna worden er diverse anime's getoond waar ze kunnen liken wat ze leuk vinden. Op basis van de gelikede anime's worden de
-gebruikers met elkaar gematch. Ze kunnen dan kijken als het een leuke maatje is en dan zouden ze eventueel samen een lijst 
-kunnen maken of samen de anime kunnen kijken.
+Do you need an app where you would like to keep track of your anime? want to like animes? Then this is the app for you!
+![](/davidsd29/Anime-list/blob/main/project-tech/assets/img/readme/homepage.png)
 
-Voor nu heb ik 4 Jobstories:
-<ol>
-  <li>when i see an intresting anime, i want to save it in my list, so i can watch it later</li>
-  <li>when i have multipule animes, i want to share my list, so my friends can watch them ass wel</li>
-  <li>when i have an account, i want to login, so i can have acces to my list</li>
-  <li>when i have seen an anime, i want to rate it, so i can share my opninon</li>
-</ol>
+## About this project
 
+In this repository you will find my progress in making the animelist app. Before you get started you have to come up with job stories. From your job stories you can look at which feature you are going to build. 
+I have chosen several features namely:
+* Adding an anime
+* Deleting an anime
+* Updating an anime
+* Filter
+* Register
+* Liking
 
-<h2>Week 2</h2>
+I have added two API to enhance the user experience, drag & drop and fetching quotes. Later in this project we are going to collaborate to add other functions and make a complete functioning  app. You can find my progress in my [wiki](https://github.com/davidsd29/Anime-list/wiki)
+
+## License
+
+See [License](/davidsd29/Anime-list/blob/main/LICENSE) for more info.
+
+## Getting started
+### Clone repository
+By adding the following line on your terminal you can clone my repository:
+
+git clone https://github.com/davidsd29/Anime-list.git
+
+Your computer will now clone this repository. To enter the correct file, Change directory to Anime-list.
+
+### Install packages
+To make sure the application will function completely you have to install all packages. Enter the following rule in to your terminal:
+
+npm install
+
+Now your computer has installed all packages needed for this application.
+
+### Run server
+To see if the application is working you have to run the server. Enter the following rule in to your terminal:
+
+npm run dev or npm start
+
+If the server is running, head to your brouwser and go to localhost:1234
