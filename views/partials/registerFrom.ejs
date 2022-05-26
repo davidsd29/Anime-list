@@ -1,5 +1,5 @@
   <div class="row">
-    <form action="/register" method="POST" id="register">
+    <form action="/register" method="POST" id="register" enctype="multipart/form-data">
 
       <h1>Register</h1>
       <p>Please fill in this form to create an account.</p>
@@ -13,7 +13,7 @@
               <label for="profile_photo">Profile Photo</label>
               <div>
                 <img src="/img/default-user.jpg" id="profileImage" alt="default profile img">
-                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" capture>
+                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo">
               </div>
             </fieldset>
             
@@ -26,12 +26,7 @@
               <label for="email">Email</label>
               <input type="email" placeholder="Enter Email" name="email" id="email" >
             </fieldset>
-
-            <fieldset>
-              <label for="description">Description about your anime</label>
-              <textarea id="description" name="description" rows="4" cols="50"></textarea>
-            </fieldset>
-
+            
           </section>
         </div>
 

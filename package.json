@@ -1,5 +1,5 @@
 {
-  "name": "back-end",
+  "name": "blocktech",
   "version": "1.0.0",
   "description": "Modules",
   "main": "server.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidsd29/Block-tech.git"
+    "url": "git+https://github.com/davidsd29/Anime-list.git"
   },
   "author": "David Dankwah",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidsd29/Block-tech/issues"
+    "url": "https://github.com/davidsd29/Anime-list/issues"
   },
-  "homepage": "https://github.com/davidsd29/Block-tech#readme",
+  "homepage": "https://github.com/davidsd29/Anime-list#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
@@ -29,6 +29,9 @@
     "multer": "^1.4.4"
   },
   "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
     "nodemon": "^2.0.15"
   }
 }

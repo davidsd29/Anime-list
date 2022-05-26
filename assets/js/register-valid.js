@@ -21,11 +21,9 @@ const registrationResponse = {
     text: document.getElementById("serverRespond")
 }
 
-
 let contactFormulier = document.getElementById("register"),
     data = {};
 
-// value from form[input type]
 let validateField = (input, value) => {
 
     if (value == "")
@@ -37,7 +35,7 @@ let validateField = (input, value) => {
 let formInput = contactFormulier.querySelectorAll(" fieldset");
 
 form.submit.addEventListener("click", (e) => {
-
+    //  e.preventDefault();
 
     let error = false;
     // looping through the whole form 
@@ -59,13 +57,13 @@ form.submit.addEventListener("click", (e) => {
             data[name] = value
 
         } else {
-            // e.preventDefault();
             errorResponse()
             field.classList.add("invalid");
             error = true
         }
     });
     if (error == false) {
+        // event.returnValue = true;
         registerd();
         console.log("ready to send to the database");
     }

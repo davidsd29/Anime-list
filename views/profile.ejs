@@ -3,17 +3,18 @@
 <main>
     <div class="row profile">
         <div class="col-12">
+           
             <div class="row profile-info">
+                 <% users.forEach( user =>{ %>
                 <div class="col-12 col-md-3">
-                    <p><% console.log(users) %></p>
-                    <img src="<%= users[2].tumbnail %>" alt="User Profile">
+                    <img src="/uploads/users/<%= user.tumbnail %>" alt="User Profile">
                 </div>
                 <div class="col-12 col-md-9">
-                    <h1> Hello <%= users[2].username%></h1>
-                    <h3>Anime discription:</h3>
-                    <p><%= users[2].discription%></p>
+                    <h1> Welcome <%= user.username%></h1>
                 </div>
+                   <% }); %>
             </div>
+           
             <section class="anime-entry">
                 <div class="row">
 
@@ -28,7 +29,7 @@
 
                 </div>
             </section>
-
+          
         </div>
     </div>
 </main>

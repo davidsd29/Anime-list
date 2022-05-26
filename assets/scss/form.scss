@@ -1,320 +1,320 @@
-  form {
-      color: color(quaternary);
-  }
+form {
+	color: color(quaternary);
+}
 
-  #login-form {
-      display: none;
-      position: fixed;
-      z-index: 3;
-      left: 0;
-      top: 5px;
-      height: 100%;
-      padding-top: 60px;
-      transition: 1s;
+#login-form {
+	display: none;
+	position: fixed;
+	z-index: 3;
+	left: 0;
+	top: 5px;
+	height: 100%;
+	padding-top: 60px;
+	transition: 1s;
 
-      @include respond-to(from-lg) {
-          left: 16em;
-          right: 16em;
-      }
+	@include respond-to(from-lg) {
+		left: 16em;
+		right: 16em;
+	}
 
-      @media screen and (min-width: 1500px) {
-          left: 24em;
-          right: 24em;
-      }
+	@media screen and (min-width: 1500px) {
+		left: 24em;
+		right: 24em;
+	}
 
-      @include respond-to(up-to-md) {
-          left: 4em;
-          right: 4em;
-      }
+	@include respond-to(up-to-md) {
+		left: 4em;
+		right: 4em;
+	}
 
-      @include respond-to(only-xs) {
-          left: 0;
-          width: 100%;
-      }
+	@include respond-to(only-xs) {
+		left: 0;
+		width: 100%;
+	}
 
+	/* Modal Content/Box */
+	form {
+		width: 70%;
+		margin: 5% auto 15% auto;
+		border: 1px solid #888;
+		background-color: color(primary);
 
+		section {
+			padding: 16px;
 
-      /* Modal Content/Box */
-      form {
-          width: 70%;
-          margin: 5% auto 15% auto;
-          border: 1px solid #888;
-          background-color: color(primary);
+			&:last-of-type {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				background: linear-gradient(color(primary), color(secondary));
 
-          section {
-              padding: 16px;
+				span.psw {
+					float: right;
 
-              &:last-of-type {
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  background: linear-gradient(color(primary), color(secondary));
+					@include respond-to(up-to-sm) {
+						display: block;
+						float: none;
+					}
+				}
 
-                  span.psw {
-                      float: right;
+				.cancelbtn {
+					width: auto;
+					padding: 10px;
+					cursor: pointer;
+					text-decoration: none;
+					text-align: center;
+					border: none;
+					border-radius: 1em;
+					background-color: #f44336;
 
-                      @include respond-to(up-to-sm) {
-                          display: block;
-                          float: none;
-                      }
-                  }
+					@include respond-to(up-to-sm) {
+						width: 100%;
+					}
 
-                  .cancelbtn {
-                      width: auto;
-                      padding: 10px;
-                      cursor: pointer;
-                      text-decoration: none;
-                      text-align: center;
-                      border: none;
-                      border-radius: 1em;
-                      background-color: #f44336;
+					&:hover {
+						filter: contrast(200%);
+						box-shadow: 0 0 20px 5px red;
+					}
+				}
+			}
 
-                      @include respond-to(up-to-sm) {
-                          width: 100%;
-                      }
+			input[type='text'],
+			input[type='password'] {
+				display: inline-block;
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				color: inherit;
+				background-color: transparent;
+			}
 
-                      &:hover {
-                          filter: contrast(200%);
-                          box-shadow: 0 0 20px 5px red;
-                      }
-                  }
-              }
+			button {
+				width: 100%;
+			}
+		}
 
-              input[type=text],
-              input[type=password] {
-                  display: inline-block;
-                  width: 100%;
-                  padding: 12px 20px;
-                  margin: 8px 0;
-                  border: 1px solid #ccc;
-                  border-radius: 4px;
-                  color: inherit;
-                  background-color: transparent;
-              }
+		.imgcontainer {
+			text-align: center;
+			margin: 24px 0 12px 0;
+			position: relative;
 
-              button {
-                  width: 100%;
-              }
-          }
+			img {
+				width: 40%;
+			}
 
-          .imgcontainer {
-              text-align: center;
-              margin: 24px 0 12px 0;
-              position: relative;
+			/* The Close Button (x) */
+			.close {
+				position: absolute;
+				right: 25px;
+				top: 0;
+				color: red;
+				font-size: 35px;
+				font-weight: bold;
 
-              img {
-                  width: 40%;
-              }
+				&:hover,
+				&:focus {
+					color: red;
+					cursor: pointer;
+				}
+			}
+		}
 
-              /* The Close Button (x) */
-              .close {
-                  position: absolute;
-                  right: 25px;
-                  top: 0;
-                  color: red;
-                  font-size: 35px;
-                  font-weight: bold;
+		/*  Zoom Animation */
+		.animate {
+			-webkit-animation: animatezoom 0.6s;
+			animation: animatezoom 0.6s;
+		}
+	}
 
-                  &:hover,
-                  &:focus {
-                      color: red;
-                      cursor: pointer;
-                  }
-              }
-          }
+	@keyframes animatezoom {
+		from {
+			transform: scale(0);
+		}
 
-          /*  Zoom Animation */
-          .animate {
-              -webkit-animation: animatezoom 0.6s;
-              animation: animatezoom 0.6s
-          }
-      }
+		to {
+			transform: scale(1);
+		}
+	}
+}
 
-      @keyframes animatezoom {
-          from {
-              transform: scale(0)
-          }
+#register,
+#new-anime {
+	width: 100%;
+	padding: 20px;
 
-          to {
-              transform: scale(1)
-          }
-      }
-  }
+	fieldset {
+		div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 20px;
 
-  #register,
-  #new-anime {
-      padding: 20px;
+			#profileImage,
+			#tumbnail {
+				height: 100px;
+				cursor: pointer;
+			}
 
-      fieldset {
-          div {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: space-between;
-              margin-bottom: 20px;
+			#tumbnail {
+				margin-bottom: 20px;
+			}
 
-              #profileImage,
-              #tumbnail {
-                  height: 100px;
-                  cursor: pointer;
-              }
-              #tumbnail{
-                  margin-bottom: 20px;
-              }
+			#imageUpload {
+				display: block;
+			}
+		}
 
-              #imageUpload {
-                  display: block;
-              }
-          }
+		&.required {
+			label {
+				&::after {
+					content: '*';
+					margin-left: 5px;
+					color: color(hover);
+				}
+			}
 
-          &.required {
-              label {
-                  &::after {
-                      content: "*";
-                      margin-left: 5px;
-                      color: color(hover);
-                  }
-              }
+			&.invalid {
+				input {
+					border: 2px solid red;
 
-              &.invalid {
-                  input {
-                      border: 2px solid red;
+					&::placeholder {
+						color: red;
+						font-style: italic;
+					}
+				}
+			}
 
-                      &::placeholder {
-                          color: red;
-                          font-style: italic;
-                      }
-                  }
-              }
+			#error {
+				color: red;
+				font-style: italic;
+			}
+		}
 
-              #error {
-                  color: red;
-                  font-style: italic;
-              }
-          }
+		input[type='text'],
+		input[type='password'],
+		input[type='number'],
+		input[type='email'],
+		select,
+		textarea {
+			display: inline-block;
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			color: inherit;
+			background-color: transparent;
 
-          input[type=text],
-          input[type=password],
-          input[type=number],
-          input[type=email],
-          select,
-          textarea {
-              display: inline-block;
-              width: 100%;
-              padding: 12px 20px;
-              margin: 8px 0;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              color: inherit;
-              background-color: transparent;
+			option {
+				background-color: color(primary);
+			}
+		}
+	}
 
-              option {
-                  background-color: color(primary);
-              }
-          }
-      }
+	input[type='submit'] {
+		width: 100%;
+	}
 
-      input[type=submit] {
-          width: 100%;
-      }
+	a {
+		color: color(tertiary);
+	}
 
-      a {
-          color: color(tertiary);
-      }
+	.row {
+		margin-top: 30px;
+	}
 
-      .row {
-          margin-top: 30px;
-      }
+	.sign-In {
+		text-align: center;
 
-      .sign-In {
-          text-align: center;
+		button {
+			color: color(tertiary);
+			background: none;
+			border: none;
 
-          button {
-              color: color(tertiary);
-              background: none;
-              border: none;
+			&:hover {
+				text-decoration: underline;
+				color: color(hover);
+			}
+		}
+	}
+}
 
-              &:hover {
-                  text-decoration: underline;
-                  color: color(hover);
-              }
-          }
-      }
-  }
+.form-respond {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 
-  .form-respond {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+	div {
+		width: 100%;
+		padding: 20px;
+		text-align: center;
+		border-radius: 4px;
+		border: 2px solid gray;
+		color: inherit;
+		background-color: color(primary);
 
-      div {
-          width: 100%;
-          padding: 20px;
-          text-align: center;
-          border-radius: 4px;
-          border: 2px solid gray;
-          color: inherit;
-          background-color: color(primary);
+		h3 {
+			letter-spacing: -1px;
+			margin-bottom: 20px;
+		}
 
-          h3 {
-              letter-spacing: -1px;
-              margin-bottom: 20px;
-          }
+		p:last-of-type {
+			line-height: 20px;
+			margin-bottom: 20px;
+		}
+	}
+}
 
-          p:last-of-type {
-              line-height: 20px;
-              margin-bottom: 20px;
-          }
-      }
-  }
+.liked {
+	border: none;
+	padding: 10px;
+	border-radius: 1em;
+	text-decoration: none;
+	text-align: center;
+	background: color(tertiary);
+	filter: grayscale(80%);
 
-  .liked {
-      border: none;
-      padding: 10px;
-      border-radius: 1em;
-      text-decoration: none;
-      text-align: center;
-      background: color(tertiary);
-      filter: grayscale(80%);
+	&:hover {
+		cursor: not-allowed;
+		background-color: none;
+		color: none;
 
-      &:hover {
-          cursor: not-allowed;
-          background-color: none;
-          color: none;
+		& + .tooltiptext {
+			visibility: visible;
+		}
+	}
+}
 
-          &+.tooltiptext {
-              visibility: visible;
-          }
-      }
-  }
+.tooltiptext {
+	position: absolute;
+	visibility: hidden;
+	padding: 5px;
+	margin-left: 17px;
+	text-align: center;
+	font-style: italic;
+	background-color: gray;
+	color: #fff;
+	border-radius: 6px;
+	z-index: 1;
 
-  .tooltiptext {
-      position: absolute;
-      visibility: hidden;
-      padding: 5px;
-      margin-left: 17px;
-      text-align: center;
-      font-style: italic;
-      background-color: gray;
-      color: #fff;
-      border-radius: 6px;
-      z-index: 1;
+	&::after {
+		position: absolute;
+		content: '';
+		top: 13%;
+		left: -28px;
+		margin-left: -5px;
+		border-width: 20px;
+		border-style: solid;
+		border-color: transparent gray transparent transparent;
 
-      &::after {
-          position: absolute;
-          content: "";
-          top: 13%;
-          left: -28px;
-          margin-left: -5px;
-          border-width: 20px;
-          border-style: solid;
-          border-color: transparent gray transparent transparent;
-
-          @include respond-to(from-md) {
-              top: 6%;
-              left: -23px;
-              border-width: 15px;
-          }
-      }
-  }
+		@include respond-to(from-md) {
+			top: 6%;
+			left: -23px;
+			border-width: 15px;
+		}
+	}
+}

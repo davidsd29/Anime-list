@@ -1,7 +1,7 @@
 body {
     background: color(primary);
     color: color(quaternary);
-    font-family: cursive, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 .logo {
@@ -145,8 +145,9 @@ body {
         }
 
         img {
-            height: 12em;
-            object-fit: contain;
+            height: 14em;
+            width: 10em;
+            object-fit: unset;
             transition: 1s;
 
             &:hover {

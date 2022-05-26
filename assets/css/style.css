@@ -7,7 +7,7 @@
 body {
   background: #1d1d1d;
   color: #FFFFFF;
-  font-family: cursive, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 .logo {
@@ -129,8 +129,9 @@ body {
   color: #e60de6;
 }
 .anime-list-entry .row img {
-  height: 12em;
-  object-fit: contain;
+  height: 14em;
+  width: 10em;
+  object-fit: unset;
   transition: 1s;
 }
 .anime-list-entry .row img:hover {
@@ -364,9 +365,9 @@ header .mobile-menu ul {
 }
 
 footer {
+  margin-top: 20px;
   width: 100%;
   padding: 1em;
-  border-top: 2px solid #08fdd8;
   background: linear-gradient(#1d1d1d, black);
 }
 footer ul {
@@ -397,6 +398,7 @@ h2 {
 }
 
 h3 {
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -548,6 +550,7 @@ form {
 
 #register,
 #new-anime {
+  width: 100%;
   padding: 20px;
 }
 #register fieldset div,
