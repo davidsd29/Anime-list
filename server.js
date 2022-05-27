@@ -23,6 +23,9 @@ app.use(
 );
 app.use('/', form);
 app.use('/', routs);
+app.use((req, res) => {
+	res.status(404).render('404');
+});
 
 app.set('view engine', 'ejs');
 

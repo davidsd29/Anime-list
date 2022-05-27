@@ -1,242 +1,250 @@
 body {
-    background: color(primary);
-    color: color(quaternary);
-    font-family: Helvetica, sans-serif;
+	background: color(primary);
+	color: color(quaternary);
+	font-family: Helvetica, sans-serif;
 }
 
 .logo {
-    width: 100%;
-    filter: invert(1);
+	width: 100%;
+	filter: invert(1);
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
 
 .blur {
-    filter: blur(10px);
+	filter: blur(10px);
 }
 
 .draggable {
-    cursor: move;
+	cursor: move;
 
-    &.dragging {
-        opacity: .5;
-    }
+	&.dragging {
+		opacity: 0.5;
+	}
 }
 
 .btn {
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 1em;
-    text-decoration: none;
-    text-align: center;
-    background-color: color(tertiary);
-    color: color(primary);
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 1em;
+	text-decoration: none;
+	text-align: center;
+	background-color: color(tertiary);
+	color: color(primary);
 
-    &:focus-within {
-        color: color(quaternary);
-    }
+	&:focus-within {
+		color: color(quaternary);
+	}
 
-    &:hover {
-        background-color: color(hover);
-        color: color(quaternary);
-    }
+	&:hover {
+		background-color: color(hover);
+		color: color(quaternary);
+	}
 
-    &:focus {
-        background-color: color(focus);
-    }
+	&:focus {
+		background-color: color(focus);
+	}
 
-    &:active {
-        background-color: color(active);
-    }
+	&:active {
+		background-color: color(active);
+	}
 }
 
 .anime-entry {
-    margin-top: 2em;
+	margin-top: 2em;
 
-    a {
-        margin-top: 10px;
-        flex-direction: column;
-        text-align: center;
+	a {
+		margin-bottom: 10px;
+		flex-direction: column;
+		text-align: center;
 
-        &#add-new-anime {
-            img {
-                padding: 14px;
-                border: 2px solid black;
-            }
+		&#add-new-anime {
+			img {
+				padding: 14px;
+				border: 2px solid black;
+			}
 
-            &:hover {
-                img {
-                    border-color: gray;
-                    filter: contrast(0.5);
-                }
-            }
-        }
+			&:hover {
+				img {
+					border-color: gray;
+					filter: contrast(0.5);
+				}
+			}
+		}
 
-        img {
-            height: 14em;
-            width: 10em;
-            object-fit: unset;
-        }
-    }
+		img {
+			height: 14em;
+			width: 10em;
+			object-fit: unset;
+		}
+	}
 }
 
 .anime-list-entry {
-    margin-top: 2em;
+	margin-top: 2em;
 
-    .row {
-        margin: 10px;
-        padding-bottom: 10px;
-        text-align: center;
-        align-items: center;
-        border-bottom: 1px dotted grey;
+	.row {
+		margin: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		align-items: center;
+		border-bottom: 1px dotted grey;
 
-        aside {
-            padding: 20px;
-            text-align: initial;
+		aside {
+			padding: 20px;
+			text-align: initial;
 
-            a {
-                color: color(tertiary);
-            }
+			a {
+				color: color(tertiary);
+			}
 
-            .options {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
+			.options {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
 
-                div {
-                    display: flex;
+				div {
+					display: flex;
 
-                    button {
-                        padding: 5px;
-                        margin-right: 5px;
-                        border-radius: 5px;
-                        background: transparent;
-                        color: color(tertiary);
-                        border-color: color(tertiary);
+					button {
+						padding: 5px;
+						margin-right: 5px;
+						border-radius: 5px;
+						background: transparent;
+						color: color(tertiary);
+						border-color: color(tertiary);
 
-                        &:hover {
-                            border-color: color(secondary);
-                            background: color(hover);
-                            color: color(secondary);
-                        }
+						&:hover {
+							border-color: color(secondary);
+							background: color(hover);
+							color: color(secondary);
+						}
 
-                        &#remove {
-                            background: none;
-                            border: none;
-                            padding: none;
+						&#remove {
+							background: none;
+							border: none;
+							padding: none;
 
-                            i {
-                                color: color(tertiary);
-                                font-size: x-large;
-                                cursor: pointer;
+							i {
+								color: color(tertiary);
+								font-size: x-large;
+								cursor: pointer;
 
-                                &:hover {
-                                    color: color(hover);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+								&:hover {
+									color: color(hover);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 
-        img {
-            height: 14em;
-            width: 10em;
-            object-fit: unset;
-            transition: 1s;
+		img {
+			height: 14em;
+			width: 10em;
+			object-fit: unset;
+			transition: 1s;
 
-            &:hover {
-                transform: scale(0.8);
-            }
-        }
-    }
+			&:hover {
+				transform: scale(0.8);
+			}
+		}
+	}
 }
 
 .single {
-    margin-top: 2em;
+	margin-top: 2em;
 
-    .detail {
-        padding: 20px;
-        background: black;
+	.detail {
+		padding: 20px;
+		background: black;
 
-        @include respond-to(from-md) {
-            margin-right: 10px;
-        }
+		@include respond-to(from-md) {
+			margin-right: 10px;
+		}
 
-        img {
-            width: 100%;
-            height: 17em;
-            object-fit: contain;
-        }
+		img {
+			width: 100%;
+			height: 17em;
+			object-fit: contain;
+		}
 
-        .rating {
-            text-align: center;
-        }
+		.rating {
+			text-align: center;
+		}
 
+		.info {
+			div {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 
-        .info {
-            div {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+				#delete {
+					background: none;
+					border: none;
+					padding: none;
+					margin-left: 20px;
+				}
 
-                #delete {
-                    background: none;
-                    border: none;
-                    padding: none;
-                    margin-left: 20px;
-                }
+				i {
+					color: color(tertiary);
+					font-size: x-large;
+					cursor: pointer;
 
-                i {
-                    color: color(tertiary);
-                    font-size: x-large;
-                    cursor: pointer;
+					&:hover {
+						color: color(hover);
+					}
+				}
+			}
+		}
+	}
 
-                    &:hover {
-                        color: color(hover);
-                    }
-                }
-            }
+	.quote {
+		margin-top: 2em;
 
-        }
-    }
+		h4 {
+			text-align: center;
+		}
 
-    .quote {
-        margin-top: 2em;
+		p {
+			font-style: italic;
+			text-align: center;
 
-        h4 {
-            text-align: center;
-        }
-
-        p {
-            font-style: italic;
-            text-align: center;
-
-            &#quote-name {
-                color: color(hover);
-            }
-        }
-    }
+			&#quote-name {
+				color: color(hover);
+			}
+		}
+	}
 }
 
 .profile {
-    margin-top: 2em;
+	margin-top: 2em;
 
-    .profile-info {
-        padding: 20px;
-        align-items: center;
-        background: linear-gradient(color(secondary), color(primary));
+	.profile-info {
+		padding: 20px;
+		align-items: center;
+		background: linear-gradient(color(secondary), color(primary));
 
-        img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-    }
+		@include respond-to(up-to-md) {
+			justify-content: center;
+			text-align: center;
+		}
+
+		img {
+			width: 60%;
+			height: 350px;
+			object-fit: cover;
+			border-radius: 50%;
+
+			@include respond-to(from-md) {
+				width: 100%;
+				height: 175px;
+			}
+		}
+	}
 }

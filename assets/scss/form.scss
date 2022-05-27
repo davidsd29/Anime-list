@@ -44,6 +44,7 @@ form {
 
 			&:last-of-type {
 				display: flex;
+				flex-wrap: wrap;
 				align-items: center;
 				justify-content: space-between;
 				background: linear-gradient(color(primary), color(secondary));
@@ -140,7 +141,8 @@ form {
 }
 
 #register,
-#new-anime {
+#new-anime,
+#edit-anime {
 	width: 100%;
 	padding: 20px;
 

@@ -45,7 +45,7 @@ form
 			username: req.body.username,
 			tumbnail: req.file.filename,
 			email: req.body.email,
-			password: req.body.psw
+			password: req.body.psw,
 		});
 	})
 	.post('/new', uploadAnime.single('tumbnail'), async (req, res) => {
@@ -94,27 +94,19 @@ form
 		res.redirect('/my-list');
 	})
 	.post('/edit-anime', async (req, res) => {
-		await db.collection('animes').update(
+		console.log('appel');
+		await db.collection('animes').replaceOne(
 			{
 				_id: ObjectId(req.body.update),
 			},
 			{
-				$set: {
-					name: req.body.name,
-				},
-				$set: {
-					slug: req.body.name,
-				},
-				$set: {
-					rating: req.body.rating,
-				},
-				$set: {
-					episodes: req.body.episode,
-				},
-				$set: {
-					storyline: req.body.storyline,
-				},
-			}
+				'name': req.body.name,
+				'slug': req.body.name,
+				'rating': req.body.rating,
+				'episodes': req.body.episode,
+				'storyline': req.body.storyline,
+			},
+			{}
 		);
 
 		res.redirect('/');
