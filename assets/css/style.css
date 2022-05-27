@@ -93,6 +93,13 @@ body {
 .anime-list-entry .row aside a {
   color: #08fdd8;
 }
+.anime-list-entry .row aside p {
+  position: relative;
+  display: block;
+  height: 100px;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
 .anime-list-entry .row aside .options {
   display: flex;
   flex-wrap: wrap;
@@ -130,7 +137,7 @@ body {
 }
 .anime-list-entry .row img {
   height: 14em;
-  width: 10em;
+  width: 100%;
   object-fit: unset;
   transition: 1s;
 }

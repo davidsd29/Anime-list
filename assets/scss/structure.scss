@@ -100,6 +100,13 @@ body {
 			a {
 				color: color(tertiary);
 			}
+			p {
+				position: relative;
+				display: block;
+				height: 100px;
+				overflow-y: hidden;
+				text-overflow: ellipsis;
+			}
 
 			.options {
 				display: flex;
@@ -146,7 +153,7 @@ body {
 
 		img {
 			height: 14em;
-			width: 10em;
+			width: 100%;
 			object-fit: unset;
 			transition: 1s;
 
