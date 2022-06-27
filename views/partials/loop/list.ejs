@@ -1,30 +1,48 @@
 <div class="col-12 col-md-3">
-    <a href="/anime/<%= anime._id %>/<%= anime.slug %>">
-        <img src="/uploads/animes/<%= anime.tumbnail %>" alt="Anime cover">
-    </a>
+	<a href="/anime/<%= anime._id %>/<%= anime.slug %>">
+		<img src="/uploads/animes/<%= anime.tumbnail %>" alt="Anime cover" />
+	</a>
 </div>
 
 <div class="col-12 col-md-9">
-    <aside>
-        <h3><%= anime.name %></h3>
-        <div class="review">
-            <% for(let i = 0; i < anime.rating; i++) {%>
-            <span>&#9733;</span>
-            <% } %>
-        </div>
-        <p><%= anime.storyline %></p>
-        <div class="options">
-            <a href="/anime/<%= anime._id %>/<%= anime.slug %>">Read more...</a>
+	<aside>
+		<section>
+			<div>
+				<h3><%= anime.name %></h3>
+			</div>
+			<div>
+                
+                    <% if(anime.like == true){ %>
+                        <form action="/remove-fav" id="like" method="POST"></form>
+                            <button type="submit" value="<%= anime._id %>" name="remove"><i class="bi bi-heart-fill"></i></button>
+                        </form>
+                        <% }%>
 
-            <div>
-                <button class="move-up">Move up</button>
-                <button class="move-down">Move down</button>
-                <form action="/remove-fav" method="POST">
-                    <button type="submit" name="remove" id="remove" value="<%= anime._id %>"><i
-                            class="bi bi-trash"></i></button>
-                </form>
             </div>
-
+		</section>
+        <div class="review">
+            <% for(let i=0; i < anime.rating; i++) {%>
+                <span>&#9733;</span>
+                <% } %>
         </div>
-    </aside>
+		<p><%= anime.storyline %></p>
+		<div class="options">
+			<a href="/anime/<%= anime._id %>/<%= anime.slug %>">Read more...</a>
+
+			<div>
+				<button class="move-up">Move up</button>
+				<button class="move-down">Move down</button>
+				<form action="/delete" method="POST">
+					<button
+						type="submit"
+						name="delete"
+						id="remove"
+						value="<%= anime._id %>"
+					>
+						<i class="bi bi-trash"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</aside>
 </div>

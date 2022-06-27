@@ -1,29 +1,29 @@
 // login functions
-const modal = document.getElementById("login-form")
+const modal = document.getElementById('login-form');
 
 function openLogin() {
-    mobileMenu.classList.add("d-none");
-    modal.style.display = "block";
+    mobileMenu.classList.add('d-none');
+    modal.style.display = 'block';
 
 }
 
 function closeLogin() {
-    modal.style.display = "none";
+    modal.style.display = 'none';
 }
 
 window.onclick = (e) => {
     if (e.target == modal) {
-        modal.style.display = "none";
+        modal.style.display = 'none';
     }
-}
+};
 
 // LIST Order
-const anime = document.querySelectorAll(".draggable");
-const moveUp = document.querySelectorAll(".move-up");
-const moveDown = document.querySelectorAll(".move-down");
+const anime = document.querySelectorAll('.draggable');
+const moveUp = document.querySelectorAll('.move-up');
+const moveDown = document.querySelectorAll('.move-down');
 
 moveUp.forEach(button => {
-    button.addEventListener('click', moveSectionUp)
+    button.addEventListener('click', moveSectionUp);
 });
 
 function moveSectionUp(event) {
@@ -34,7 +34,7 @@ function moveSectionUp(event) {
 }
 
 moveDown.forEach(button => {
-    button.addEventListener('click', moveSectionDown)
+    button.addEventListener('click', moveSectionDown);
 });
 
 function moveSectionDown(event) {
@@ -44,5 +44,3 @@ function moveSectionDown(event) {
     list.insertBefore(item.nextElementSibling, item);
 
 }
-
-

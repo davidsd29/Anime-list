@@ -97,6 +97,29 @@ body {
 			padding: 20px;
 			text-align: initial;
 
+			section {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				button {
+					background: none;
+					border: none;
+					i {
+						color: color(tertiary);
+						font-size: 25px;
+						cursor: pointer;
+
+						&:hover {
+							color: color(hover);
+						}
+
+						&.bi-heart-fill{
+							color: red;
+						}
+					}
+				}
+			}
+
 			a {
 				color: color(tertiary);
 			}

@@ -90,6 +90,26 @@ body {
   padding: 20px;
   text-align: initial;
 }
+.anime-list-entry .row aside section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.anime-list-entry .row aside section button {
+  background: none;
+  border: none;
+}
+.anime-list-entry .row aside section button i {
+  color: #08fdd8;
+  font-size: 25px;
+  cursor: pointer;
+}
+.anime-list-entry .row aside section button i:hover {
+  color: #e60de6;
+}
+.anime-list-entry .row aside section button i.bi-heart-fill {
+  color: red;
+}
 .anime-list-entry .row aside a {
   color: #08fdd8;
 }

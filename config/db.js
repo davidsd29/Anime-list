@@ -23,6 +23,10 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 	try {
 		await client.connect();
 		db = client.db(process.env.DB_NAME);
+
+
+		animeCollection = db.collection('animes')
+		userCollection = db.collection('users')
 	} catch (error) {
 		throw error;
 	}

@@ -4,6 +4,6 @@ const quoteInput = document.getElementById('quote-text'),
 fetch('https://animechan.vercel.app/api/random')
   .then((response) => response.json())
   .then((quote) => {
-    quoteInput.textContent = `"${quote.quote}"`;
+    quoteInput.textContent = `'${quote.quote}'`;
     name.textContent = `~${quote.character}~`;
   });

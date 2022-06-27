@@ -3,23 +3,21 @@ const express = require('express'),
 	connectDB = require('../config/db.js'),
 	{ ObjectId } = require('mongodb');
 
-const router = express.Router();
+const app = express.Router();
 
 connectDB();
 
 // Routes
-router
-	.get('/', async (req, res) => {
-		// GET LIST OF ANIMES
-		const animes = await db.collection('animes').find({}, {}).toArray();
-		res.render('index', {
-			animes,
-			genres,
-		});
-	})
+app.get('/home', async (req, res) => {
+	// GET LIST OF ANIMES
+	const animes = await animeCollection.find({}, {}).toArray();
+	res.render('index', {
+		animes,
+		genres,
+	});
+})
 	.get('/anime/:id/:slug', async (req, res) => {
-		const anime = await db
-			.collection('animes')
+		const anime = await animeCollection
 			.find({
 				_id: ObjectId(req.params.id),
 			})
@@ -31,8 +29,7 @@ router
 		});
 	})
 	.get('/my-list', async (req, res) => {
-		const animes = await db
-			.collection('animes')
+		const animes = await animeCollection
 			.find({
 				like: true,
 			})
@@ -43,8 +40,7 @@ router
 		});
 	})
 	.get('/genre', async (req, res) => {
-		let genre = await db
-			.collection('animes')
+		let genre = await animeCollection
 			.find({
 				genres: req.query.genre,
 			})
@@ -57,8 +53,8 @@ router
 	})
 
 	.get('/profile', async (req, res) => {
-		const animes = await db.collection('animes').find({}, {}).toArray();
-		const users = await db.collection('users').find({username: 'JKKill'}).toArray();
+		const animes = await animeCollection.find({}, {}).toArray();
+		const users = await userCollection.find({ username: 'JKKill' }).toArray();
 		res.render('profile', {
 			animes,
 			users,
@@ -73,18 +69,17 @@ router
 		res.render('register');
 	})
 
-	.get('/update-anime/:id/:slug', async (req, res) => {
-		const anime = await db
-			.collection('animes')
+	.get('/update-anime', async (req, res) => {
+		const anime = await animeCollection
 			.find({
-				_id: ObjectId(req.params.id),
+				_id: ObjectId(req.query.id),
 			})
 			.toArray();
 
 		res.render('updateAnime', {
 			anime,
-			genres
+			genres,
 		});
 	});
 
-module.exports = router;
+module.exports = app;
