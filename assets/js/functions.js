@@ -1,21 +1,21 @@
 // login functions
-const modal = document.getElementById('login-form');
+// const modal = document.getElementById('login-module');
 
-function openLogin() {
-    mobileMenu.classList.add('d-none');
-    modal.style.display = 'block';
+// function openLogin() {
+//     mobileMenu.classList.add('d-none');
+//     modal.style.display = 'block';
 
-}
+// }
 
-function closeLogin() {
-    modal.style.display = 'none';
-}
+// function closeLogin() {
+//     modal.style.display = 'none';
+// }
 
-window.onclick = (e) => {
-    if (e.target == modal) {
-        modal.style.display = 'none';
-    }
-};
+// window.onclick = (e) => {
+//     if (e.target == modal) {
+//         modal.style.display = 'none';
+//     }
+// };
 
 // LIST Order
 const anime = document.querySelectorAll('.draggable');

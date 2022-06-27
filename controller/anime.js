@@ -1,8 +1,10 @@
 const { ObjectId } = require('mongodb');
 
 const add = async (req, res) => {
+	const sessionUser = req.session.passport.user;
+
 	try {
-		await animeCollection.insertOne({
+		const newAnime = await animeCollection.insertOne({
 			name: req.body.name,
 			slug: req.body.name,
 			tumbnail: req.file.filename,
@@ -12,6 +14,13 @@ const add = async (req, res) => {
 			episodes: req.body.episodes,
 			storyline: req.body.storyline,
 		});
+
+		const animeId = newAnime.insertedId;
+		console.log(animeId);
+		await userCollection.updateOne(
+			{ _id: ObjectId(sessionUser) },
+			{ $push: { myAnime: animeId } }
+		);
 
 		res.redirect('/home');
 	} catch (err) {
@@ -36,6 +45,31 @@ const edit = async (req, res) => {
 		res.status(400).send(err.message);
 	}
 };
+const like = async (req, res) => {
+	const sessionUser = req.session.passport.user;
+
+	await userCollection.updateOne(
+		{
+			_id: ObjectId(sessionUser),
+		},
+		{ $push: { myAnime: ObjectId(req.body.like) } }
+	);
+
+	res.redirect('/my-list');
+};
+
+const dislike = async (req, res) => {
+	const sessionUser = req.session.passport.user;
+
+	await userCollection.updateOne(
+		{
+			_id: ObjectId(sessionUser),
+		},
+		{ $pull: { liked: ObjectId(req.body.remove) } }
+	);
+
+	res.redirect('/my-list');
+};
 
 const deleteOne = async (req, res) => {
 	await animeCollection.deleteOne({
@@ -45,4 +79,4 @@ const deleteOne = async (req, res) => {
 	res.redirect('/home');
 };
 
-module.exports = { add, edit, deleteOne };
+module.exports = { add, edit, like, dislike, deleteOne };

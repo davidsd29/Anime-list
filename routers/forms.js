@@ -4,21 +4,8 @@ const express = require('express'),
 const app = express.Router();
 
 // UPDATE
-app.post('/like', async (req, res) => {
-	await db.collection('animes').updateOne(
-		{
-			_id: ObjectId(req.body.like),
-		},
-		{
-			$set: {
-				like: true,
-			},
-		}
-	);
-
-	res.redirect('/my-list');
-}).post('/remove-fav', async (req, res) => {
-	await db.collection('animes').updateOne(
+app.post('/dislike', async (req, res) => {
+	await animeCollection.updateOne(
 		{
 			_id: ObjectId(req.body.remove),
 		},

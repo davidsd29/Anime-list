@@ -11,6 +11,8 @@ const register = async (req, res) => {
 			tumbnail: req?.file?.filename,
 			email: req.body.email,
 			password: hashedPassword,
+			Liked: [],
+			myAnime: [],
 		});
 
 		console.log(hashedPassword);
@@ -21,17 +23,20 @@ const register = async (req, res) => {
 };
 
 const edit = async (req, res) => {
-	// const query = { _id : }
+	const sessionUser = req.session.passport.user;
 	try {
-		await userCollection.updateOne(query, {
-			$set: {
-				name: req.body.name,
-				username: req.body.username,
-				tumbnail: req?.file?.filename,
-				email: req.body.email,
-				password: req.body.psw,
-			},
-		});
+		await userCollection.updateOne(
+			{ _id: ObjectId(sessionUser) },
+			{
+				$set: {
+					name: req.body.name,
+					username: req.body.username,
+					tumbnail: req?.file?.filename,
+					email: req.body.email,
+					password: req.body.psw,
+				},
+			}
+		);
 
 		res.redirect('/profile');
 	} catch (err) {

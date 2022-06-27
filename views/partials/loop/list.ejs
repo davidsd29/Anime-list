@@ -1,3 +1,4 @@
+<div class="row draggable" draggable="true">
 <div class="col-12 col-md-3">
 	<a href="/anime/<%= anime._id %>/<%= anime.slug %>">
 		<img src="/uploads/animes/<%= anime.tumbnail %>" alt="Anime cover" />
@@ -13,7 +14,7 @@
 			<div>
                 
                     <% if(anime.like == true){ %>
-                        <form action="/remove-fav" id="like" method="POST"></form>
+                        <form action="anime/dislike" id="like" method="POST">
                             <button type="submit" value="<%= anime._id %>" name="remove"><i class="bi bi-heart-fill"></i></button>
                         </form>
                         <% }%>
@@ -45,4 +46,5 @@
 			</div>
 		</div>
 	</aside>
+</div>
 </div>

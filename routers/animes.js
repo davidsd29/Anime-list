@@ -23,6 +23,8 @@ const app = express.Router();
 
 app.post('/new', uploadAnime.single('tumbnail'), anime.add)
 	.post('/edit', anime.edit)
+	.post('/like', anime.like)
+	.post('/dislike', anime.dislike)
 	.delete('/delete', anime.deleteOne);
 
 module.exports = app;
