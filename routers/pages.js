@@ -8,14 +8,20 @@ const app = express.Router();
 connectDB();
 
 // Routes
-app.get('/home', async (req, res) => {
-	// GET LIST OF ANIMES
-	const animes = await animeCollection.find({}, {}).toArray();
-	res.render('index', {
-		animes,
-		genres,
-	});
+app.get('/', async (req, res) => {
+	res.render('start');
 })
+	.get('/login', async (req, res) => {
+		res.render('login');
+	})
+	.get('/home', async (req, res) => {
+		// GET LIST OF ANIMES
+		const animes = await animeCollection.find({}, {}).toArray();
+		res.render('home', {
+			animes,
+			genres,
+		});
+	})
 	.get('/anime/:id/:slug', async (req, res) => {
 		const anime = await animeCollection
 			.find({

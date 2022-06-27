@@ -54,6 +54,25 @@ body {
   background-color: darkblue;
 }
 
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.start img {
+  height: 9em;
+  object-fit: contain;
+  margin: 2em 0;
+}
+.start div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.start div a {
+  width: 18em;
+}
+
 .anime-entry {
   margin-top: 2em;
 }
@@ -460,7 +479,7 @@ form {
   color: #FFFFFF;
 }
 
-#login-form {
+#login-module {
   display: none;
   position: fixed;
   z-index: 3;
@@ -472,56 +491,56 @@ form {
   /* Modal Content/Box */
 }
 @media screen and (min-width: 992px) {
-  #login-form {
+  #login-module {
     left: 16em;
     right: 16em;
   }
 }
 @media screen and (min-width: 1500px) {
-  #login-form {
+  #login-module {
     left: 24em;
     right: 24em;
   }
 }
 @media screen and (max-width: 991px) {
-  #login-form {
+  #login-module {
     left: 4em;
     right: 4em;
   }
 }
 @media screen and (min-width: 0) and (max-width: 575px) {
-  #login-form {
+  #login-module {
     left: 0;
     width: 100%;
   }
 }
-#login-form form {
+#login-module form {
   width: 70%;
   margin: 5% auto 15% auto;
   border: 1px solid #888;
   background-color: #1d1d1d;
   /*  Zoom Animation */
 }
-#login-form form section {
+#login-module form section {
   padding: 16px;
 }
-#login-form form section:last-of-type {
+#login-module form section:last-of-type {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(#1d1d1d, black);
 }
-#login-form form section:last-of-type span.psw {
+#login-module form section:last-of-type span.psw {
   float: right;
 }
 @media screen and (max-width: 767px) {
-  #login-form form section:last-of-type span.psw {
+  #login-module form section:last-of-type span.psw {
     display: block;
     float: none;
   }
 }
-#login-form form section:last-of-type .cancelbtn {
+#login-module form section:last-of-type .cancelbtn {
   width: auto;
   padding: 10px;
   cursor: pointer;
@@ -532,16 +551,16 @@ form {
   background-color: #f44336;
 }
 @media screen and (max-width: 767px) {
-  #login-form form section:last-of-type .cancelbtn {
+  #login-module form section:last-of-type .cancelbtn {
     width: 100%;
   }
 }
-#login-form form section:last-of-type .cancelbtn:hover {
+#login-module form section:last-of-type .cancelbtn:hover {
   filter: contrast(200%);
   box-shadow: 0 0 20px 5px red;
 }
-#login-form form section input[type=text],
-#login-form form section input[type=password] {
+#login-module form section input[type=text],
+#login-module form section input[type=password] {
   display: inline-block;
   width: 100%;
   padding: 12px 20px;
@@ -551,19 +570,19 @@ form {
   color: inherit;
   background-color: transparent;
 }
-#login-form form section button {
+#login-module form section button {
   width: 100%;
 }
-#login-form form .imgcontainer {
+#login-module form .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
   position: relative;
   /* The Close Button (x) */
 }
-#login-form form .imgcontainer img {
+#login-module form .imgcontainer img {
   width: 40%;
 }
-#login-form form .imgcontainer .close {
+#login-module form .imgcontainer .close {
   position: absolute;
   right: 25px;
   top: 0;
@@ -571,11 +590,11 @@ form {
   font-size: 35px;
   font-weight: bold;
 }
-#login-form form .imgcontainer .close:hover, #login-form form .imgcontainer .close:focus {
+#login-module form .imgcontainer .close:hover, #login-module form .imgcontainer .close:focus {
   color: red;
   cursor: pointer;
 }
-#login-form form .animate {
+#login-module form .animate {
   -webkit-animation: animatezoom 0.6s;
   animation: animatezoom 0.6s;
 }
@@ -589,12 +608,21 @@ form {
 }
 
 #register,
+#login,
 #new-anime,
 #edit-anime {
   width: 100%;
   padding: 20px;
 }
+#register #error,
+#login #error,
+#new-anime #error,
+#edit-anime #error {
+  color: red;
+  font-style: italic;
+}
 #register fieldset div,
+#login fieldset div,
 #new-anime fieldset div,
 #edit-anime fieldset div {
   display: flex;
@@ -605,6 +633,8 @@ form {
 }
 #register fieldset div #profileImage,
 #register fieldset div #tumbnail,
+#login fieldset div #profileImage,
+#login fieldset div #tumbnail,
 #new-anime fieldset div #profileImage,
 #new-anime fieldset div #tumbnail,
 #edit-anime fieldset div #profileImage,
@@ -613,16 +643,19 @@ form {
   cursor: pointer;
 }
 #register fieldset div #tumbnail,
+#login fieldset div #tumbnail,
 #new-anime fieldset div #tumbnail,
 #edit-anime fieldset div #tumbnail {
   margin-bottom: 20px;
 }
 #register fieldset div #imageUpload,
+#login fieldset div #imageUpload,
 #new-anime fieldset div #imageUpload,
 #edit-anime fieldset div #imageUpload {
   display: block;
 }
 #register fieldset.required label::after,
+#login fieldset.required label::after,
 #new-anime fieldset.required label::after,
 #edit-anime fieldset.required label::after {
   content: "*";
@@ -630,19 +663,15 @@ form {
   color: #e60de6;
 }
 #register fieldset.required.invalid input,
+#login fieldset.required.invalid input,
 #new-anime fieldset.required.invalid input,
 #edit-anime fieldset.required.invalid input {
   border: 2px solid red;
 }
 #register fieldset.required.invalid input::placeholder,
+#login fieldset.required.invalid input::placeholder,
 #new-anime fieldset.required.invalid input::placeholder,
 #edit-anime fieldset.required.invalid input::placeholder {
-  color: red;
-  font-style: italic;
-}
-#register fieldset.required #error,
-#new-anime fieldset.required #error,
-#edit-anime fieldset.required #error {
   color: red;
   font-style: italic;
 }
@@ -652,6 +681,12 @@ form {
 #register fieldset input[type=email],
 #register fieldset select,
 #register fieldset textarea,
+#login fieldset input[type=text],
+#login fieldset input[type=password],
+#login fieldset input[type=number],
+#login fieldset input[type=email],
+#login fieldset select,
+#login fieldset textarea,
 #new-anime fieldset input[type=text],
 #new-anime fieldset input[type=password],
 #new-anime fieldset input[type=number],
@@ -679,6 +714,12 @@ form {
 #register fieldset input[type=email] option,
 #register fieldset select option,
 #register fieldset textarea option,
+#login fieldset input[type=text] option,
+#login fieldset input[type=password] option,
+#login fieldset input[type=number] option,
+#login fieldset input[type=email] option,
+#login fieldset select option,
+#login fieldset textarea option,
 #new-anime fieldset input[type=text] option,
 #new-anime fieldset input[type=password] option,
 #new-anime fieldset input[type=number] option,
@@ -694,26 +735,31 @@ form {
   background-color: #1d1d1d;
 }
 #register input[type=submit],
+#login input[type=submit],
 #new-anime input[type=submit],
 #edit-anime input[type=submit] {
   width: 100%;
 }
 #register a,
+#login a,
 #new-anime a,
 #edit-anime a {
   color: #08fdd8;
 }
 #register .row,
+#login .row,
 #new-anime .row,
 #edit-anime .row {
   margin-top: 30px;
 }
 #register .sign-In,
+#login .sign-In,
 #new-anime .sign-In,
 #edit-anime .sign-In {
   text-align: center;
 }
 #register .sign-In button,
+#login .sign-In button,
 #new-anime .sign-In button,
 #edit-anime .sign-In button {
   color: #08fdd8;
@@ -721,6 +767,7 @@ form {
   border: none;
 }
 #register .sign-In button:hover,
+#login .sign-In button:hover,
 #new-anime .sign-In button:hover,
 #edit-anime .sign-In button:hover {
   text-decoration: underline;
@@ -797,6 +844,37 @@ form {
     left: -23px;
     border-width: 15px;
   }
+}
+
+.sign-In {
+  margin-top: 2em;
+}
+
+#login img {
+  height: 9em;
+  object-fit: contain;
+}
+#login fieldset:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+}
+#login fieldset:last-of-type div {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+#login fieldset:last-of-type .cancel {
+  color: #FFFFFF;
+  background-color: #f44336;
+}
+@media screen and (max-width: 767px) {
+  #login fieldset:last-of-type .cancel {
+    width: 100%;
+  }
+}
+#login fieldset:last-of-type .cancel:hover {
+  filter: contrast(200%);
 }
 
 .not-found {

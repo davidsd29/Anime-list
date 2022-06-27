@@ -17,7 +17,7 @@ const uploadUser = multer({
 
 const app = express.Router();
 
-app.post('/register', uploadUser.single('profile_photo'), user.add)
+app.post('/register', uploadUser.single('profile_photo'), user.register)
 	.post('/edit', user.edit)
 	.post('/delete', user.deleteOne);
 

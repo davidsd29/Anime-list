@@ -1,0 +1,104 @@
+<%- include('partials/header'); %>
+
+<main>
+	<div class="row">
+		<form
+			action="anime/edit"
+			method="POST"
+			id="edit-anime"
+			enctype="multipart/form-data">
+			<h1>Update anime</h1>
+			<hr/>
+
+			<section class="row">
+				<% anime.forEach( anime=>{ %>
+				<div class="col-12 col-md-6">
+					<section>
+						<fieldset class="required">
+							<label for="tumbnail">Anime cover</label>
+							<div>
+								<img
+									id="tumbnail"
+									src="/uploads/animes/<%= anime.tumbnail %>"
+									alt="Anime cover"
+								/>
+								<input
+									id="imageUpload"
+									type="file"
+									name="tumbnail"
+									placeholder="Anime Cover"
+									accept="image/*"
+									value="<%= anime.tumbnail %>"
+								/>
+							</div>
+						</fieldset>
+
+						<fieldset class="required">
+							<label for="name">Name</label>
+							<input
+								type="text"
+								name="name"
+								id="name"
+								value="<%= anime.name %>"
+							/>
+						</fieldset>
+
+						<fieldset class="required">
+							<label for="rating"
+								>what rating do you give your anime?</label
+							>
+							<p id="error"></p>
+							<input
+								type="number"
+								id="rating"
+								name="rating"
+								min="1"
+								max="5"
+								value="<%= anime.rating %>"
+							/>
+						</fieldset>
+					</section>
+				</div>
+
+				<div class="col-12 col-md-6">
+					<section>
+						<fieldset class="required">
+							<label for="episodes">Episodes</label>
+							<input
+								type="number"
+								name="episodes"
+								id="episodes"
+								value="<%= anime.episodes %>"
+							/>
+						</fieldset>
+
+						<fieldset>
+							<label for="storyline">Description about your anime</label>
+							<textarea
+								id="storyline"
+								name="storyline"
+								rows="5"
+								cols="50"
+							>
+                            <%= anime.storyline %>
+                            </textarea>
+						</fieldset>
+
+						<hr />
+						<button
+							type="submit"
+							name="update"
+							class="btn"
+							value="<%= anime._id %>"
+						>
+							Update
+						</button>
+					</section>
+				</div>
+				<% }); %>
+			</section>
+		</form>
+	</div>
+</main>
+
+<%- include('partials/footer'); %>

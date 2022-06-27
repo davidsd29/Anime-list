@@ -52,6 +52,27 @@ body {
 		background-color: color(active);
 	}
 }
+.start {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	img {
+		height: 9em;
+		object-fit: contain;
+		margin: 2em 0;
+	}
+	
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+
+		a {
+			width: 18em;
+		}
+	}
+}
 
 .anime-entry {
 	margin-top: 2em;
@@ -113,7 +134,7 @@ body {
 							color: color(hover);
 						}
 
-						&.bi-heart-fill{
+						&.bi-heart-fill {
 							color: red;
 						}
 					}

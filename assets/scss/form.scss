@@ -2,7 +2,7 @@ form {
 	color: color(quaternary);
 }
 
-#login-form {
+#login-module {
 	display: none;
 	position: fixed;
 	z-index: 3;
@@ -141,10 +141,16 @@ form {
 }
 
 #register,
+#login,
 #new-anime,
 #edit-anime {
 	width: 100%;
 	padding: 20px;
+
+	#error {
+		color: red;
+		font-style: italic;
+	}
 
 	fieldset {
 		div {
@@ -187,11 +193,6 @@ form {
 						font-style: italic;
 					}
 				}
-			}
-
-			#error {
-				color: red;
-				font-style: italic;
 			}
 		}
 
@@ -317,6 +318,43 @@ form {
 			top: 6%;
 			left: -23px;
 			border-width: 15px;
+		}
+	}
+}
+
+.sign-In {
+	margin-top: 2em;
+}
+
+#login {
+	img {
+		height: 9em;
+		object-fit: contain;
+	}
+
+	fieldset {
+		&:last-of-type {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 2em;
+
+			div {
+				display: flex;
+				flex-direction: row;
+				gap: 1em;
+			}
+			.cancel {
+				color: color(quaternary);
+				background-color: #f44336;
+
+				@include respond-to(up-to-sm) {
+					width: 100%;
+				}
+
+				&:hover {
+					filter: contrast(200%);
+				}
+			}
 		}
 	}
 }

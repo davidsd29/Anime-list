@@ -4,8 +4,8 @@ const form = {
     message: document.querySelector('#register #description'),
     photo: document.querySelector('#register #imageUpload'),
     username: document.querySelector('#register #username'),
-    psw: document.querySelector('#register #psw'),
-    pswRepeat: document.querySelector('#register #psw-repeat'),
+    psw: document.querySelector('#register #password'),
+    pswRepeat: document.querySelector('#register #password-repeat'),
     submit: document.querySelector('#register #submit'),
 };
 

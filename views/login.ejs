@@ -1,0 +1,46 @@
+<%- include('partials/head'); %>
+
+<body>
+	<div class="container">
+		<main>
+			<form action="/login/" method="POST" id="login">
+				<img src="/img/logo.png" alt="logo" class="logo" />
+                <p id="error"><% if (messages.error) {%>
+                    <%= messages.error %>
+                        <% }; %></p>
+                <fieldset>
+				<label for="email"><b>Email</b></label>
+				<input
+					type="email"
+					placeholder="Enter Email"
+					name="email"
+					required
+				/>
+
+				<label for="password"><b>Password</b></label>
+				<input
+					type="password"
+					placeholder="Enter Password"
+					name="password"
+					required
+				/>
+                </fieldset>
+				<fieldset>
+					<div>
+						<button type="submit" class="btn">Login</button>
+						<a href="/" class="cancel btn">Cancel</a>
+					</div>
+					<aside>
+						<span class="psw">Forgot <a href="#">password?</a></span
+						><br />
+						<span
+							>Don't have an acount?
+							<a href="/register">Register now!</a></span
+						>
+					</aside>
+				</fieldset>
+			</form>
+		</main>
+		<%-include('partials/footer');%>
+	</div>
+</body>
