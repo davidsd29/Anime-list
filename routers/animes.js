@@ -25,6 +25,7 @@ app.post('/new', uploadAnime.single('tumbnail'), anime.add)
 	.post('/edit', anime.edit)
 	.post('/like', anime.like)
 	.post('/dislike', anime.dislike)
+	.post('/search', anime.search)
 	.delete('/delete', anime.deleteOne);
 
 module.exports = app;

@@ -89,6 +89,12 @@ form {
 				border-radius: 4px;
 				color: inherit;
 				background-color: transparent;
+
+				&:active,
+				&:focus {
+					outline: none;
+					border-color: color(hover);
+				}
 			}
 
 			button {
@@ -213,6 +219,12 @@ form {
 
 			option {
 				background-color: color(primary);
+			}
+
+			&:active,
+			&:focus {
+				outline: none;
+				border-color: color(hover);
 			}
 		}
 	}

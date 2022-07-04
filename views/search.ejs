@@ -1,0 +1,16 @@
+<%- include('partials/header'); %>
+
+<main>
+	<div class="row">
+		<section class="search-entry col-12 col-md-10">
+			<div class="row">
+				<% searchOutput.forEach( output =>{ %> <%- include('partials/loop/search-output', { output:
+				output });%> <% }); %>
+			</div>
+		</section>
+
+		<%- include('partials/GIF-bar'); %>
+	</div>
+</main>
+
+<%- include('partials/footer'); %>

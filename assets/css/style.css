@@ -10,6 +10,21 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+ul {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  list-style: none;
+}
+ul li {
+  display: block;
+  padding: 10px;
+  min-width: 48px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .logo {
   width: 100%;
   filter: invert(1);
@@ -73,8 +88,32 @@ body {
   width: 18em;
 }
 
+.search-entry {
+  margin-top: 2em;
+}
+.search-entry a {
+  margin-bottom: 10px;
+  flex-direction: column;
+  text-align: center;
+}
+.search-entry a i {
+  font-size: 7em;
+}
+.search-entry a img {
+  height: 14em;
+  width: 10em;
+  object-fit: unset;
+}
+
 .anime-entry {
   margin-top: 2em;
+}
+.anime-entry > div {
+  justify-content: center;
+}
+.anime-entry > div section {
+  display: grid;
+  text-align: center;
 }
 .anime-entry a {
   margin-bottom: 10px;
@@ -97,6 +136,13 @@ body {
 
 .anime-list-entry {
   margin-top: 2em;
+}
+.anime-list-entry > div {
+  justify-content: center;
+}
+.anime-list-entry > div section {
+  display: grid;
+  text-align: center;
 }
 .anime-list-entry .row {
   margin: 10px;
@@ -272,52 +318,85 @@ header {
   background: black;
   z-index: 100;
 }
-header nav {
-  width: 100%;
-  align-items: baseline;
-  justify-content: flex-end;
-}
-header nav.menu {
-  flex-wrap: wrap;
-}
-header nav ul {
-  display: flex;
-  list-style: none;
-}
-header nav ul li {
-  display: block;
-  padding: 10px;
-  min-width: 48px;
-  justify-content: center;
+header > div {
   align-items: center;
-  text-align: center;
 }
-header nav ul li button {
+header aside {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+header aside div:first-of-type button {
   background: none;
   border: none;
   color: inherit;
 }
-header nav ul li button:hover {
+header aside div:first-of-type button:hover {
   text-decoration: underline;
   color: #e60de6;
 }
-header nav ul li i {
+header aside div:first-of-type #profile {
+  height: 3em;
+  width: 3em;
+  aspect-ratio: 1/2;
+  border-radius: 50%;
+  padding: 5px;
+  background: #1e1e1e;
+  object-fit: contain;
+}
+header aside div:last-of-type nav {
+  width: 100%;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+header aside div:last-of-type nav.menu {
+  flex-wrap: wrap;
+}
+header aside div:last-of-type nav ul form {
+  display: flex;
+}
+header aside div:last-of-type nav ul form input {
+  display: inline-block;
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-right-color: transparent;
+  border-radius: 4px 0 0 4px;
+  color: inherit;
+  background-color: transparent;
+}
+header aside div:last-of-type nav ul form input:active, header aside div:last-of-type nav ul form input:focus, header aside div:last-of-type nav ul form input:focus + button {
+  outline: none;
+  border-color: #e60de6;
+}
+header aside div:last-of-type nav ul form input:focus + button {
+  border-left-color: transparent;
+}
+header aside div:last-of-type nav ul form button {
+  width: 20%;
+  margin-left: -2px;
+  padding: 6px 10px;
+  border-radius: 0 4px 4px 0px;
+  border: 1px solid #ccc;
+  border-left-color: transparent;
+  color: inherit;
+  background-color: transparent;
+}
+header aside div:last-of-type nav ul form button:hover {
+  border-left-color: transparent;
+}
+header aside div:last-of-type nav ul form button:hover i {
+  color: #e60de6;
+}
+header aside div:last-of-type nav ul i {
   font-size: larger;
 }
-header nav input[type=text],
-header nav input[type=submit] {
-  padding: 0 10px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  color: inherit;
-  background: inherit;
-}
-header .menu-toggle {
+
+.menu-toggle {
   display: flex;
   justify-content: flex-end;
 }
-header .menu-toggle span {
+.menu-toggle span {
   width: 35px;
   display: flex;
   justify-content: flex-end;
@@ -326,7 +405,7 @@ header .menu-toggle span {
   background-color: #FFFFFF;
   transition: 1s;
 }
-header .menu-toggle span::before, header .menu-toggle span::after {
+.menu-toggle span::before, .menu-toggle span::after {
   content: "";
   display: block;
   position: absolute;
@@ -335,13 +414,14 @@ header .menu-toggle span::before, header .menu-toggle span::after {
   border-radius: 5px;
   background-color: inherit;
 }
-header .menu-toggle span::before {
+.menu-toggle span::before {
   top: 13px;
 }
-header .menu-toggle span::after {
+.menu-toggle span::after {
   bottom: 13px;
 }
-header .mobile-menu {
+
+.mobile-menu {
   position: fixed;
   top: 5em;
   left: 0;
@@ -350,10 +430,10 @@ header .mobile-menu {
   background: inherit;
   z-index: 2;
 }
-header .mobile-menu .row {
+.mobile-menu .row {
   justify-content: center;
 }
-header .mobile-menu ul {
+.mobile-menu ul {
   flex-direction: column;
 }
 
@@ -362,7 +442,7 @@ header .mobile-menu ul {
   margin-top: 2em;
   background-color: #111;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 1.25em;
   padding-left: 0;
 }
 .sidebar a {
@@ -371,6 +451,17 @@ header .mobile-menu ul {
 }
 .sidebar a::first-letter {
   text-transform: uppercase;
+}
+
+.gif-bar {
+  margin-top: 2em;
+  height: inherit;
+  padding: 1.25em;
+  background-color: #111;
+}
+.gif-bar img {
+  height: 93%;
+  width: 100%;
 }
 
 .mobile-sidebar {
@@ -423,24 +514,17 @@ header .mobile-menu ul {
 }
 
 footer {
-  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-top: 1.25em;
   width: 100%;
   padding: 1em;
   background: linear-gradient(#1d1d1d, black);
 }
 footer ul {
-  display: flex;
   justify-content: center;
-  list-style: none;
   flex-wrap: wrap;
-}
-footer ul li {
-  display: block;
-  padding: 10px;
-  min-width: 48px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 footer .row {
   justify-content: center;
@@ -569,6 +653,12 @@ form {
   border-radius: 4px;
   color: inherit;
   background-color: transparent;
+}
+#login-module form section input[type=text]:active, #login-module form section input[type=text]:focus,
+#login-module form section input[type=password]:active,
+#login-module form section input[type=password]:focus {
+  outline: none;
+  border-color: #e60de6;
 }
 #login-module form section button {
   width: 100%;
@@ -733,6 +823,56 @@ form {
 #edit-anime fieldset select option,
 #edit-anime fieldset textarea option {
   background-color: #1d1d1d;
+}
+#register fieldset input[type=text]:active, #register fieldset input[type=text]:focus,
+#register fieldset input[type=password]:active,
+#register fieldset input[type=password]:focus,
+#register fieldset input[type=number]:active,
+#register fieldset input[type=number]:focus,
+#register fieldset input[type=email]:active,
+#register fieldset input[type=email]:focus,
+#register fieldset select:active,
+#register fieldset select:focus,
+#register fieldset textarea:active,
+#register fieldset textarea:focus,
+#login fieldset input[type=text]:active,
+#login fieldset input[type=text]:focus,
+#login fieldset input[type=password]:active,
+#login fieldset input[type=password]:focus,
+#login fieldset input[type=number]:active,
+#login fieldset input[type=number]:focus,
+#login fieldset input[type=email]:active,
+#login fieldset input[type=email]:focus,
+#login fieldset select:active,
+#login fieldset select:focus,
+#login fieldset textarea:active,
+#login fieldset textarea:focus,
+#new-anime fieldset input[type=text]:active,
+#new-anime fieldset input[type=text]:focus,
+#new-anime fieldset input[type=password]:active,
+#new-anime fieldset input[type=password]:focus,
+#new-anime fieldset input[type=number]:active,
+#new-anime fieldset input[type=number]:focus,
+#new-anime fieldset input[type=email]:active,
+#new-anime fieldset input[type=email]:focus,
+#new-anime fieldset select:active,
+#new-anime fieldset select:focus,
+#new-anime fieldset textarea:active,
+#new-anime fieldset textarea:focus,
+#edit-anime fieldset input[type=text]:active,
+#edit-anime fieldset input[type=text]:focus,
+#edit-anime fieldset input[type=password]:active,
+#edit-anime fieldset input[type=password]:focus,
+#edit-anime fieldset input[type=number]:active,
+#edit-anime fieldset input[type=number]:focus,
+#edit-anime fieldset input[type=email]:active,
+#edit-anime fieldset input[type=email]:focus,
+#edit-anime fieldset select:active,
+#edit-anime fieldset select:focus,
+#edit-anime fieldset textarea:active,
+#edit-anime fieldset textarea:focus {
+  outline: none;
+  border-color: #e60de6;
 }
 #register input[type=submit],
 #login input[type=submit],

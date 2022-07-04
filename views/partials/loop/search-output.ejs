@@ -1,0 +1,13 @@
+<a href="/user-profile?username=<%= output.username %>&id=<%= output._id %>" class="col-6 col-md-4 col-lg-3">
+    <% if (output.tumbnail){ %>
+    <img src="/uploads/users/<%= output.tumbnail %>" alt="User Profile img">
+<% }else { %>
+
+<i class="bi bi-person-circle"></i>
+<% } %>
+    <h3>
+        <%= output.username %>
+    </h3>
+
+<p><%= output.myAnime.length%></p>
+</a>

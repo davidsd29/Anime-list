@@ -79,4 +79,24 @@ const deleteOne = async (req, res) => {
 	res.redirect('/home');
 };
 
-module.exports = { add, edit, like, dislike, deleteOne };
+const search = async (req, res) => {
+	const sessionUser = req.session.passport.user;
+
+	// GET LIST OF LIKED ANIMES BASSED ON USER
+	const user = await userCollection.findOne(
+		{ _id: ObjectId(sessionUser) },
+		{}
+	);
+
+	const searchOutput = await userCollection
+		.find({
+			$text: {
+				$search: req.body.search,
+			},
+		})
+		.toArray();
+
+	res.render('search', { searchOutput, user });
+};
+
+module.exports = { add, edit, like, dislike, deleteOne, search };

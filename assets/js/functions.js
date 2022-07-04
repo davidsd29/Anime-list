@@ -1,21 +1,12 @@
-// login functions
-// const modal = document.getElementById('login-module');
+var options = {
+  // de classes van de h2's en p's (daarin gaat gezocht worden naar matches)
+  valueNames: [ 'name', 'movie' ]
+};
 
-// function openLogin() {
-//     mobileMenu.classList.add('d-none');
-//     modal.style.display = 'block';
-
-// }
-
-// function closeLogin() {
-//     modal.style.display = 'none';
-// }
-
-// window.onclick = (e) => {
-//     if (e.target == modal) {
-//         modal.style.display = 'none';
-//     }
-// };
+/* het daadwerkelijk initialiseren van het zoeken */
+// theList - de ID van de main
+// options - hierboven gedefinieerd
+var charactersList = new List('theList', options);
 
 // LIST Order
 const anime = document.querySelectorAll('.draggable');

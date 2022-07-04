@@ -3,7 +3,7 @@
 <main>
     <div class="row">
         <section class="col-12 col-md-10 single">
-            <% anime.forEach( anime =>{ %>
+
 
             <section class="row detail">
                 <div class="col-12 col-md-4">
@@ -22,7 +22,7 @@
                     <p>Genres: <%= anime.genres %> </p>
                     <div>
                         <form action="/like" id="like" method="POST">
-                            <% if(anime.like == true){ %>
+                            <% if(liked.includes(anime._id)){ %>
                             <input type="submit" class="liked" name="liked" value="Liked" disabled>
                             <span class="tooltiptext">Anime is already liked. To dislike go to "My list"</span>
                             <% } else{ %>
@@ -49,10 +49,9 @@
                 <p id="quote-name"></p>
             </section>
 
-            <% }); %>
         </section>
 
-        <%- include('partials/sidebar'); %>
+        <%- include('partials/GIF-bar'); %>
     </div>
 </main>
 

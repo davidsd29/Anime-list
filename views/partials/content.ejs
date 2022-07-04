@@ -2,19 +2,33 @@
     <section class="anime-entry col-12 col-md-10">
         <div class="row">
 
-            <a href="/new-anime" id="add-new-anime" class="col-6 col-md-4 col-lg-3">
-                <img src="/img/upload.png" alt="Default anime">
-                <h3>Add new anime</h3>
-            </a>
 
-            <% animes.forEach( anime =>{ %>
-            <%- include('loop/anime', {
-             anime: anime
-         });%>
-            <% }); %>
+<% if (animes.length <= 0){%>
+<section>
+<h1>Welcome <%= user.username %></h1>
+<p>We have been waiting for you! You dont have any items yet... <br>
+    Please fill up your collection !
+</p>
+<a href="/new-anime" class="btn"> Add new Anime</a>
+</section>
+           
+
+                <% } else {%>
+
+                                <a href="/new-anime" id="add-new-anime" class="col-6 col-md-4 col-lg-3">
+                                    <img src="/img/upload.png" alt="Default anime">
+                                    <h3>Add new anime</h3>
+                                </a>
+
+                    <% animes.forEach( anime=>{ %>
+                        <%- include('loop/anime', { anime: anime });%>
+                    <% }); %>
+                 
+                <% }; %>
 
         </div>
     </section>
 
     <%- include('sidebar'); %>
 </div>
+

@@ -3,13 +3,28 @@
 <main>
 	<div class="row">
 		<section class="anime-list-entry dragdrop col-12 col-md-10">
-			<% animes.forEach( anime=>{ %>
+
+			<% if (animes.length <=0){%>
+				<section>
+					<h1>Hi <%= user.username %>
+					</h1>
+					<p>You dont have any liked items yet... <br>
+						Please like your favorite anime !
+					</p>
+					<a href="/new-anime" class="btn"> Add new Anime</a>
+				</section>
 			
-				<%- include('partials/loop/list', { anime: anime });%> <% }); %>
-		
+			
+				<% } else {%>
+
+					<% animes.forEach( anime=>{ %>
+			
+						<%- include('partials/loop/list', { anime: anime });%> 
+					<% }); %>
+				<% }; %>
 		</section>
 
-		<%- include('partials/sidebar'); %>
+		<%- include('partials/GIF-bar'); %>
 	</div>
 </main>
 

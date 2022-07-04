@@ -3,6 +3,21 @@ body {
 	color: color(quaternary);
 	font-family: Helvetica, sans-serif;
 }
+ul {
+	display: flex;
+	align-items: baseline;
+	margin: 0;
+	list-style: none;
+
+	li {
+		display: block;
+		padding: 10px;
+		min-width: 48px;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+}
 
 .logo {
 	width: 100%;
@@ -62,7 +77,7 @@ body {
 		object-fit: contain;
 		margin: 2em 0;
 	}
-	
+
 	div {
 		display: flex;
 		flex-direction: column;
@@ -74,8 +89,34 @@ body {
 	}
 }
 
+.search-entry {
+	margin-top: 2em;
+
+	a {
+		margin-bottom: 10px;
+		flex-direction: column;
+		text-align: center;
+
+		i{
+			font-size: 7em;
+		}
+		img {
+			height: 14em;
+			width: 10em;
+			object-fit: unset;
+		}
+	}
+}
 .anime-entry {
 	margin-top: 2em;
+
+	> div {
+		justify-content: center;
+		section {
+			display: grid;
+			text-align: center;
+		}
+	}
 
 	a {
 		margin-bottom: 10px;
@@ -106,6 +147,15 @@ body {
 
 .anime-list-entry {
 	margin-top: 2em;
+
+	> div {
+		justify-content: center;
+
+		section {
+			display: grid;
+			text-align: center;
+		}
+	}
 
 	.row {
 		margin: 10px;
